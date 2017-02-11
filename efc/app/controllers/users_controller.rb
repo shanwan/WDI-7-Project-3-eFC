@@ -1,9 +1,11 @@
 class UsersController < ApplicationController
   def new
+    # p user_params
     @user = User.new
   end
 
   def create
+    p user_params
     @user = User.new(user_params)
     if @user.save
       flash[:success] = "Account Created. Please Login"
