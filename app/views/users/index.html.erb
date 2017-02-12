@@ -1,7 +1,13 @@
-this is the index page
+<div class="container jumbotron">
+<h1>Login</h1>
+<h3>Welcome to eFinancialCounsellor, pls login to start the admission process.</h3>
+</div>
 
-testing
+<%= render "partials/flash" %>
 
-steph pushing sth
+<%= form_for :user do |f| %>
+  <%= f.text_field :personal_id, placeholder: "Enter your NRIC/FIN" %>
+  <%= f.text_field :password, placeholder: "Enter your password" %>
 
-ah is too
+  <%= f.submit "Login" %>
+<% end %>
