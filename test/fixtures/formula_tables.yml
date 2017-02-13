@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Income_Min: MyString
+  Income_Max: MyString
+  Class_C_SG: MyString
+  Class_B2_SG: MyString
+  Class_C_PR: MyString
+  Class_B2_PR: MyString
+
+two:
+  Income_Min: MyString
+  Income_Max: MyString
+  Class_C_SG: MyString
+  Class_B2_SG: MyString
+  Class_C_PR: MyString
+  Class_B2_PR: MyString

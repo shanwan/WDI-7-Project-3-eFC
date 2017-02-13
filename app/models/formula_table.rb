@@ -1,0 +1,2 @@
+class FormulaTable < ApplicationRecord
+end
