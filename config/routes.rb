@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'patients/new'
+
+  get 'patients/show'
+
+  get 'patients/edit'
+
+  get 'patients/update'
+
+  get 'patients/destroy'
+
   # get 'patient_admissions/index'
   #
   # get 'patient_admissions/new'
@@ -14,6 +24,7 @@ Rails.application.routes.draw do
   delete "logout" => "users#destroy"
   get "meanstesting" => "patient_admissions#meanstesting"
   resources :users
+  resources :patients
   resources :patient_admissions
   root "users#index"
 
