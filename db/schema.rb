@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170212110221) do
+ActiveRecord::Schema.define(version: 20170213042827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "formula_tables", force: :cascade do |t|
+    t.string   "Income_Min"
+    t.string   "Income_Max"
+    t.string   "Class_C_SG"
+    t.string   "Class_B2_SG"
+    t.string   "Class_C_PR"
+    t.string   "Class_B2_PR"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "patients", force: :cascade do |t|
     t.string   "name"
@@ -43,6 +54,14 @@ ActiveRecord::Schema.define(version: 20170212110221) do
     t.integer  "contact_no"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+  end
+
+  create_table "wards", force: :cascade do |t|
+    t.string   "hospital"
+    t.string   "ward_type"
+    t.boolean  "availability"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
 end
