@@ -42,6 +42,10 @@ GEM
     autoprefixer-rails (6.7.2)
       execjs
     bcrypt (3.1.11)
+<<<<<<< HEAD
+=======
+    bcrypt (3.1.11-x86-mingw32)
+>>>>>>> b5c39d1212eb24277e670e5dfe6a90995c89f355
     bootstrap-sass (3.3.7)
       autoprefixer-rails (>= 5.2.1)
       sass (>= 3.3.4)
@@ -59,6 +63,10 @@ GEM
     erubis (2.7.0)
     execjs (2.7.0)
     ffi (1.9.17)
+<<<<<<< HEAD
+=======
+    ffi (1.9.17-x86-mingw32)
+>>>>>>> b5c39d1212eb24277e670e5dfe6a90995c89f355
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.8.0)
@@ -85,8 +93,16 @@ GEM
     multi_json (1.12.1)
     nio4r (1.2.1)
     nokogiri (1.7.0.1)
+<<<<<<< HEAD
       mini_portile2 (~> 2.1.0)
     pg (0.19.0)
+=======
+      mini_portile2 (~> 2.1.0)
+    nokogiri (1.7.0.1-x86-mingw32)
+      mini_portile2 (~> 2.1.0)
+    pg (0.19.0)
+    pg (0.19.0-x86-mingw32)
+>>>>>>> b5c39d1212eb24277e670e5dfe6a90995c89f355
     puma (3.7.0)
     rack (2.0.1)
     rack-test (0.6.3)
@@ -158,6 +174,10 @@ GEM
 
 PLATFORMS
   ruby
+<<<<<<< HEAD
+=======
+  x86-mingw32
+>>>>>>> b5c39d1212eb24277e670e5dfe6a90995c89f355
 
 DEPENDENCIES
   bcrypt (~> 3.1.11)
