@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213053646) do
+
+ActiveRecord::Schema.define(version: 20170213062123) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +41,22 @@ ActiveRecord::Schema.define(version: 20170213053646) do
     t.boolean  "confirm"
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
+<<<<<<< HEAD
+=======
+
+  create_table "formula_tables", force: :cascade do |t|
+    t.string   "Income_Min"
+    t.string   "Income_Max"
+    t.string   "Class_C_SG"
+    t.string   "Class_B2_SG"
+    t.string   "Class_C_PR"
+    t.string   "Class_B2_PR"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+
+    t.integer  "Class_A"
+
+>>>>>>> c97a1db4af0dd409e1ed5f5b688a2a18015a2868
   end
 
   create_table "patients", force: :cascade do |t|
