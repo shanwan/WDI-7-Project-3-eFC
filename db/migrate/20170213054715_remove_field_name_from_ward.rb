@@ -3,7 +3,7 @@ class RemoveFieldNameFromWard < ActiveRecord::Migration[5.0]
     remove_column :wards, :availability
   end
 
-  def add
+  def change
     add_column :wards, :availability,  :integer
   end
 end
