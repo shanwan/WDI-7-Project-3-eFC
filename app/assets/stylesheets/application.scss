@@ -13,3 +13,51 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ $footer-header-height: 102px;
+ $footer-body-height: 50px;
+
+ html {
+   position: relative;
+   min-height: 100%;
+ }
+
+ body {
+   background: white;
+   background-repeat: repeat-x;
+   margin-bottom: $footer-header-height + $footer-body-height;
+ }
+
+ footer {
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   ul {
+     list-style: none;
+     padding-left: 0;
+     li {
+       display: inline;
+       margin-right: 1em;
+       a {
+         text-transform: uppercase;
+         font-weight: bold;
+         color: white;
+       }
+
+       a:hover {
+         text-transform: uppercase;
+         color: white;
+       }
+     }
+   }
+ }
+
+ footer.header {
+   bottom: $footer-body-height;
+  //  background: image-url( "footer_art.png" ) repeat-x;
+   height: $footer-header-height;
+ }
+ footer.body {
+   background: #B2DBD5;
+   min-height: $footer-body-height;
+ }
