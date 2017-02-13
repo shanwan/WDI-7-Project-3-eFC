@@ -1,4 +1,16 @@
 Rails.application.routes.draw do
+  get 'patient_admissions/index'
+
+  get 'patient_admissions/new'
+
+  get 'patient_admissions/show'
+
+  get 'patient_admissions/edit'
+
+  get 'patient_admissions/update'
+
+  get 'patient_admissions/destroy'
+
   resources :users
   root "users#index"
 
