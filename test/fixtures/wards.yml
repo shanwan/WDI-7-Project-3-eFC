@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hospital: MyString
+  ward_type: MyString
+  availability: MyString
+
+two:
+  hospital: MyString
+  ward_type: MyString
+  availability: MyString
