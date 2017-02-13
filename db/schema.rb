@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170213062123) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "patient_admissions", force: :cascade do |t|
+    t.text     "treatment"
+    t.string   "NRIC"
+    t.integer  "length_of_stay"
+    t.string   "ward_selected"
+    t.integer  "bill_amount"
+    t.date     "start_treatment"
+    t.date     "end_treatment"
+    t.string   "doctor_in_charge"
+    t.boolean  "financial_counsel", default: false
+    t.boolean  "confirm"
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
 
   create_table "formula_tables", force: :cascade do |t|
     t.string   "Income_Min"
@@ -24,7 +41,9 @@ ActiveRecord::Schema.define(version: 20170213062123) do
     t.string   "Class_B2_PR"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+
     t.integer  "Class_A"
+
   end
 
   create_table "patients", force: :cascade do |t|
