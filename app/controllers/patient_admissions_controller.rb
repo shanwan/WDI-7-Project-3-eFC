@@ -3,25 +3,27 @@ class PatientAdmissionsController < ApplicationController
   before_action :is_authenticated
 
   def index
+    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
   end
 
   def new
-    @patient = Patient_admission.new
+    @patient = PatientAdmission.new
   end
 
   def show
-    @patient = Patient_admission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.where(:id => params[:id]).where(:confirm => params['false'])
+    # how to refer to the current admission
   end
 
   def edit
-    @patient = Patient_admission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
   end
 
   def update
-    @patient = Patient_admission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
 
-    if @patient.update(patient_admission_params)
-      redirect_to @patient_admission
+    if @patient.update(PatientAdmission_params)
+      redirect_to @PatientAdmission
     else
       render 'edit'
     end
@@ -32,7 +34,7 @@ class PatientAdmissionsController < ApplicationController
 
   private
 
-  def patient_admission_params
+  def PatientAdmission_params
     params.require(:patient).permit()
   end
 

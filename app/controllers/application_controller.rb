@@ -5,12 +5,13 @@ class ApplicationController < ActionController::Base
 def is_authenticated
   unless current_user
     flash[:danger] = "Credentials Invalid!!"
-    redirect_to login_path
+    redirect_to users_path
   end
 end
 
 def current_user
-  @current_user ||= User.find_by_id(user[:personal_id])
+  @current_user ||= User.find_by_id(session[:user_id])
+  # what is the session id to use?
 end
 
 helper_method :current_user
