@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   #
   # get 'patient_admissions/destroy'
 
+  delete "logout" => "users#destroy"
+  get "meanstesting" => "patient_admissions#meanstesting"
   resources :users
   resources :patient_admissions
   root "users#index"
