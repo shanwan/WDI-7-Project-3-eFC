@@ -14,7 +14,8 @@ class UsersController < ApplicationController
     if user
       session[:user_id] = user.id
       flash[:success] = "Account Created. Please Login"
-      redirect_to user_path(user.id)
+      redirect_to patient_admission_path(user.id)
+      # redirect to the latest/ current admission page
     else
       flash[:danger] = "Credentials Invalid!!"
       redirect_to login_path

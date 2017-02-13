@@ -3,7 +3,8 @@ class PatientAdmissionsController < ApplicationController
   before_action :is_authenticated
 
   def index
-    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.find_by(NRIC: params[:NRIC])
+    #find by what???
   end
 
   def new
@@ -11,8 +12,9 @@ class PatientAdmissionsController < ApplicationController
   end
 
   def show
-    @patient = PatientAdmission.where(:id => params[:id]).where(:confirm => params['false'])
+    @patient = PatientAdmission.find_by! user_id: current_user.id, confirm: false
     # how to refer to the current admission
+    # @patient = PatientAdmission.where(:user_id => params[current_user.id], :confirm => params['false'])
   end
 
   def edit
