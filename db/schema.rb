@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170213070415) do
+ActiveRecord::Schema.define(version: 20170213091124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20170213070415) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "Class_A"
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.string   "insurance_co"
+    t.string   "insurance_name"
+    t.string   "insurance_type"
+    t.integer  "claimable_amt"
+    t.string   "personal_id"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
   end
 
   create_table "patient_admissions", force: :cascade do |t|
@@ -50,8 +60,14 @@ ActiveRecord::Schema.define(version: 20170213070415) do
     t.integer  "income"
     t.boolean  "insurance"
     t.integer  "medisave"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.string   "next_of_kin"
+    t.string   "next_of_kin_email"
+    t.integer  "next_of_kin_contact"
+    t.boolean  "next_of_kin_POA"
+    t.boolean  "means_testing"
+    t.boolean  "medisave_access"
   end
 
   create_table "users", force: :cascade do |t|
