@@ -1,2 +1,0 @@
-class Insurance < ApplicationRecord
-end
