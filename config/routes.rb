@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
-  get 'patients/new'
-
-  get 'patients/show'
-
-  get 'patients/edit'
-
-  get 'patients/update'
-
-  get 'patients/destroy'
+  # get 'patients/new'
+  #
+  # get 'patients/show'
+  #
+  # get 'patients/edit'
+  #
+  # get '/patients/:id', to: 'patients#update', as: 'patient'
+  #
+  # get 'patients/destroy'
 
   # get 'patient_admissions/index'
   #

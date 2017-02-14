@@ -4,10 +4,8 @@
 <h4>Pls click yes to acknowledge that you are willing to release your relevant financial records for means testing. This data will be recorded for future admissions as well.</h4>
 </div>
 
-<%= form_for :patient_record, :url => patients_path do |f| %>
+<%= form_for :patient_record, url:patients_path(1) do |f| %>
 <%= f.radio_button(:means_testing, "true") %> Yes
 <%= f.radio_button(:means_testing, "false") %> No
 <%= f.submit %>
 <%end%>
-<%# <button class="btn" type="submit" value="True"> Yes </button>
-<%# <button class="btn" type="submit" value="False"> No </button>
