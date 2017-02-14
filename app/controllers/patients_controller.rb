@@ -1,28 +1,36 @@
 class PatientsController < ApplicationController
     def show
-      @patients_record = current_user.patient.find(params[:id])
+      @patients_record = Patient.find(params[:id])
     end
 
     def new
-      puts @patient_record
-      @patient_record = current_user.patients.find(params[:id])
-      puts @patient_record
+      @patient_record = Patient.find(params[:id])
     end
 
     def edit
-      puts @patient_record
-      @patient_record = current_user.patient.find(params[:id])
-      puts @patient_record
+      @patient_record = Patient.find(params[:id])
+    end
+
+    def edit2
+      @patient_record = Patient.find(params[:id])
     end
 
     def update
-      puts @patient_record
-      @patient_record = current_user.patient.find(params[:id])
-      puts @patient_record
+      @patient_record = Patient.find(params[:id])
       if @patient_record.update(patient_params)
-      redirect_to patient_admissions_show_path
+      redirect_to edit2_patient_path
+      # ????
       else
       render 'edit'
+      end
+    end
+
+    def update2
+      @patient_record = Patient.find(params[:id])
+      if @patient_record.update(patient_params)
+      redirect_to edit2_patient_path
+      else
+      render 'edit2'
       end
     end
 
@@ -46,7 +54,7 @@ class PatientsController < ApplicationController
     private
     # by adding the below, if anyone changes the keys to send through via the chrome dev tool for eg, the data cannot be passed through via below
     def patient_params
-      params.require(:patient_record).permit(:means_testing)
+      params.require(:patient_record).permit(:means_testing, :medisave_access)
     end
 
   end

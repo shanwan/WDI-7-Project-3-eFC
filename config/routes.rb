@@ -1,32 +1,18 @@
 Rails.application.routes.draw do
-  # get 'patients/new'
-  #
-  # get 'patients/show'
-  #
-  # get 'patients/edit'
-  #
-  # get '/patients/:id', to: 'patients#update', as: 'patient'
-  #
-  # get 'patients/destroy'
-
-  # get 'patient_admissions/index'
-  #
-  # get 'patient_admissions/new'
-  #
-  # get 'patient_admissions/show'
-  #
-  # get 'patient_admissions/edit'
-  #
-  # get 'patient_admissions/update'
-  #
-  # get 'patient_admissions/destroy'
-
-  delete "logout" => "users#destroy"
-  get "meanstesting" => "patient_admissions#meanstesting"
+  get "login" => "sessions#new"
+  post "login" => "sessions#create"
+  delete "logout" => "sessions#destroy"
+  # get "mcaf" => "patients#mcaf"
+  # patch "mcaf" => "patients#mcafupdate"
   resources :users
-  resources :patients
+  resources :patients do
+    member do
+      get :edit2
+      put :update2
+    end
+  end
   resources :patient_admissions
-  root "users#index"
+  root "sessions#new"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

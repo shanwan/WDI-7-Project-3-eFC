@@ -4,29 +4,25 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @user = User.find(params[:id])
-  end
+  # def show
+  #   @user = User.find(params[:id])
+  # end
 
   def create
-    user = User.find_and_authenticate_user(user_params)
-
-    if user
-      session[:user_id] = user.id
+    @user = User.new(user_params)
+    if @user.save
       flash[:success] = "Account Created. Please Login"
       redirect_to root_path
-      # redirect to the latest/ current admission page
     else
-      flash[:danger] = "Credentials Invalid!!"
-      redirect_to root_path
+      render :new
     end
   end
 
-  def destroy
-    session[:user_id] = nil
-    flash[:success] = "User logged out!!"
-    redirect_to root_path
-  end
+  # def destroy
+  #   session[:user_id] = nil
+  #   flash[:success] = "User logged out!!"
+  #   redirect_to root_path
+  # end
 
   private
 

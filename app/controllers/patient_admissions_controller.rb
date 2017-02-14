@@ -18,13 +18,13 @@ class PatientAdmissionsController < ApplicationController
   end
 
   def edit
-    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.find_by(user_id: params[:user_id])
   end
 
   def update
-    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.find_by(user_id: params[:user_id])
 
-    if @patient.update(PatientAdmission_params)
+    if @patient.update(patient_admission_params)
       redirect_to @PatientAdmission
     else
       render 'edit'
@@ -36,8 +36,8 @@ class PatientAdmissionsController < ApplicationController
 
   private
 
-  def PatientAdmission_params
-    params.require(:patient).permit()
+  def patient_admission_params
+    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :id)
   end
 
 end
