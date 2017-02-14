@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <fieldset>
+    <legend> Create news </legend>
+    <%= form_for @ward do |f| %>
+
+    <% if @ward.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@ward.errors.count, "error") %> prohibited
+        this ward from being saved:
+      </h2>
+      <ul>
+        <% @ward.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+    <% end %>
+
+    <p>
+      <label>Subsidy available to you based on means testing</label><br>
+      <%= f.text_field :name %> 
+    </p>
+
+    <p>
+      <label><%= f.label :link %></label><br>
+      <%= f.text_field :link %>
+    </p>
+
+    <p>
+      <%= f.submit class:'blue btn' %>
+    </p>
+
+    <% end %>
+  </fieldset>
+</div>

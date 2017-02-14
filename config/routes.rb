@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :patients do
     member do
       get :edit2
-      put :update2
+      patch :update2
     end
   end
   resources :patient_admissions

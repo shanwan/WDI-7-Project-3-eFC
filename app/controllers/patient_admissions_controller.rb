@@ -4,11 +4,16 @@ class PatientAdmissionsController < ApplicationController
 
   def index
     @patient = PatientAdmission.find_by(NRIC: params[:NRIC])
-    #find by what???
+    @ward = Ward.all
+    # puts "**************** index"
+    # puts @ward
   end
 
   def new
     @patient = PatientAdmission.new
+    @ward = Ward.all
+    puts "**************** new"
+    puts @ward
   end
 
   def show
