@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20170214021802) do
+=======
+ActiveRecord::Schema.define(version: 20170214015739) do
+>>>>>>> 9968a592a66122934f820dbd4e81596cbc553f29
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,6 +33,20 @@ ActiveRecord::Schema.define(version: 20170214021802) do
 
   create_table "insurance_tables", force: :cascade do |t|
     t.string   "insurance_company"
+<<<<<<< HEAD
+=======
+    t.string   "insurance_name"
+    t.string   "insurance_type"
+    t.integer  "claimable_amount"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_insurance_tables_on_user_id", using: :btree
+  end
+
+  create_table "insurances", force: :cascade do |t|
+    t.string   "insurance_co"
+>>>>>>> 9968a592a66122934f820dbd4e81596cbc553f29
     t.string   "insurance_name"
     t.string   "insurance_type"
     t.integer  "claimable_amount"
@@ -89,5 +107,6 @@ ActiveRecord::Schema.define(version: 20170214021802) do
     t.integer  "availability"
   end
 
+  add_foreign_key "insurance_tables", "users"
   add_foreign_key "patient_admissions", "users"
 end

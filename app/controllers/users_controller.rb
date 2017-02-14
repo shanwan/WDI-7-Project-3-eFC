@@ -1,8 +1,6 @@
 class UsersController < ApplicationController
-has_many :insurance, dependent :destroy
 
   def new
-    # p user_params
     @user = User.new
   end
 
@@ -16,11 +14,11 @@ has_many :insurance, dependent :destroy
     if user
       session[:user_id] = user.id
       flash[:success] = "Account Created. Please Login"
-      redirect_to patient_admission_path(user.id)
+      redirect_to root_path
       # redirect to the latest/ current admission page
     else
       flash[:danger] = "Credentials Invalid!!"
-      redirect_to login_path
+      redirect_to root_path
     end
   end
 

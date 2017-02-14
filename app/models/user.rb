@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   has_one :patient
-  
+  has_many :insurance, dependent: :destroy
+
   validates :personal_id,
   presence: true,
   uniqueness: {case_sensitive: false},

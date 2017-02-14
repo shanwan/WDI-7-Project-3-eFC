@@ -1,28 +1,29 @@
 class PatientsController < ApplicationController
     def show
-      @patients_record = Patient.find(params[:id])
+      @patients_record = current_user.patient.find(params[:id])
     end
 
-    # def new
-    #   @patient_record = Patient.new
-    #   # @parks = Park.all
-    #   # this is a new instance created but you have to create another new when posting. if the user leaves the page as it is for 2 days, you may have already lost the data
-    # end
+    def new
+      puts @patient_record
+      @patient_record = current_user.patients.find(params[:id])
+      puts @patient_record
+    end
 
     def edit
-      @patient_record = Patient.find(params[:id])
-      debugger
+      puts @patient_record
+      @patient_record = current_user.patient.find(params[:id])
+      puts @patient_record
     end
 
     def update
+      puts @patient_record
       @patient_record = current_user.patient.find(params[:id])
-      debugger
+      puts @patient_record
       if @patient_record.update(patient_params)
       redirect_to patient_admissions_show_path
       else
       render 'edit'
       end
-      debugger
     end
 
     def create
