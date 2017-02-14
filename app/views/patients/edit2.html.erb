@@ -2,7 +2,7 @@
   <h1>Medical Claims Authorization Form (MCAF)</h1>
 </div>
 
-<%= form_for :patient_record, url: patient_path(current_user.id), method: "Patch" do |f| %>
+<%= form_for :patient_record, url: update2_patient_path(current_user.id), method: "Patch" do |f| %>
 <%= f.radio_button(:medisave_access, "true") %> MCAF - Multiple
 <p>Authorise payment for current and future hospitalisation treatment using MSV, MSHL and PMI</p>
 <%= f.radio_button(:medisave_access, "false") %> MCAF - Single

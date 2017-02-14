@@ -18,8 +18,8 @@ class PatientsController < ApplicationController
     def update
       @patient_record = Patient.find(params[:id])
       if @patient_record.update(patient_params)
-      redirect_to edit2_patient_path
-      # ????
+      # redirect_to @patient_record
+      redirect_to edit2_patient_path(@patient_record)
       else
       render 'edit'
       end
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
     def update2
       @patient_record = Patient.find(params[:id])
       if @patient_record.update(patient_params)
-      redirect_to edit2_patient_path
+        redirect_to @patient_record
       else
       render 'edit2'
       end
