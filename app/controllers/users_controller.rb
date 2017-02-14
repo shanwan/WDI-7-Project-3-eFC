@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+has_many :insurance, dependent :destroy
+
   def new
     # p user_params
     @user = User.new
