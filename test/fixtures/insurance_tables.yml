@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  insurance_company: MyString
+  insurance_name: MyString
+  insurance_type: MyString
+  claimable_amount: 1
+
+two:
+  insurance_company: MyString
+  insurance_name: MyString
+  insurance_type: MyString
+  claimable_amount: 1
