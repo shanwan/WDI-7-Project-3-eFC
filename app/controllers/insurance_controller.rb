@@ -16,32 +16,26 @@ class InsuranceController < ApplicationController
     @insurance= Insurance.new
   end
 
-  def edit
-    @insurance_record = Insurance.find(params[:id])
-  end
-
-  def update
-    @insurance_record = Insurance.find(params[:id])
-    if @insurance_record.update(insurance_params)
-    redirect_to insurance_show_path
-    else
-    render 'edit'
-    end
-  end
-
   def create
-    @insurance_record = Insurance.new(insurance_params)
-    if @insurance_record.save
-      redirect_to @insurance_record
+    @insurance= User.Insurance.create(insurance_params)
+    if @insurance.save
+      flash[:success] = "Policy Details saved"
+      redirect_to insurance_index_path
     else
-      render "new"
+      render :new
     end
-  end
 
-  def destroy
-    @insurance = Insurance.find(params[:id])
-    @insurance.destroy
-  redirect_to insurance_show_path
-  end
+    def update
+      #computer does not remember that edit was ran
+      @insurance=Insurance.find_by_id(params[:id]).update
+    end
 
+    def edit
+      @insurance=Insurance.find_by_id(params[:id])
+    end
+
+    def delete
+      @insurance=Insurance.find_by_id(params[:id]).delete
+      redirect_to insurance_index_path
+    end
 end
