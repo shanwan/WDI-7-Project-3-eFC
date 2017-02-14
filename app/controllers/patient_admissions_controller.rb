@@ -43,7 +43,7 @@ class PatientAdmissionsController < ApplicationController
 
     @patient = PatientAdmission.find_by(user_id: current_user.id)
     @ward = Ward.all
-    @wardA = 428
+    @wardA = Ward.find_by(ward_type: 'A')
     # puts "**************** new"
     # puts @ward
     # puts "**************** new"

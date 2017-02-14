@@ -8,11 +8,11 @@
       <label> Length of stay </label><br>
       <%=@patient.length_of_stay%><br>
       <label> Cost per day </label><br>
-      <%=@WardA%><br>
+      $ <%=@wardA.cost_per_day%><br>
       <label> Before Subsidy </label><br>
-      $ <%= 428 * @patient.length_of_stay %><br>
+      $ <%= @wardA.cost_per_day * @patient.length_of_stay %><br>
       <label> After Subsidy </label><br>
-      $ <%= @aftersubsidy = 428 * @patient.length_of_stay %><br>
+      $ <%= @aftersubsidy = @wardA.cost_per_day * @patient.length_of_stay %><br>
       <label> Medisave Claimable </label><br>
       $ <%=@patient_record.medisave%><br>
       <label> Cash payable </label><br>
