@@ -1,2 +1,15 @@
 <h1>PatientAdmissions#new</h1>
 <p>Find me in app/views/patient_admissions/new.html.erb</p>
+
+<form>
+  <div class="container" style="border:1px solid black">
+    <h4>Ward selection: </h4><br>
+    <% @ward.each do |w| %>
+    <%#= w.inspect %>
+    <label class="radio-inline">
+      <input type="radio" name="optradio" value="<%=w.ward_type%>"> Ward: <%= w.ward_type %> |
+      <span> Availability: <%= w.availability %></span>
+    </label>
+    <%end%>
+  </form>
+</div>
