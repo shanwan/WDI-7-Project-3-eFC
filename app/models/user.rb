@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_one :patient
+  
   validates :personal_id,
   presence: true,
   uniqueness: {case_sensitive: false},
