@@ -1,1 +1,16 @@
-<%=@insurance %>
+this is insurance index page<br>
+<% if @insurance.length == 0 %>
+<%= "You do not have any insurance policies on record with us" %>
+<% else @insurance.each do |i| %>
+<ul>
+  <li><%= i.insurance_company %></li>
+  <li><%= i.insurance_name %></li>
+  <li><%= i.insurance_type %></li>
+  <li><%= i.claimable_amount %></li>
+  <li><%= link_to "Edit", edit_insurance_path(i.id) %></li>
+  <li><%= link_to "Delete", insurance_path(i.id), method: :delete %></li>
+</ul>
+
+<% end %>
+<% end %><br>
+<a href="/insurance/new/">Create new insurance record</a>

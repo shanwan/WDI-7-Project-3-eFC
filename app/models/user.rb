@@ -1,6 +1,6 @@
 class User < ApplicationRecord
   has_one :patient
-  has_many :insurance, dependent: :destroy
+  has_many :insurance_tables, dependent: :destroy
 
   validates :personal_id,
   presence: true,
