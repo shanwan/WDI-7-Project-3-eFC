@@ -13,17 +13,17 @@
     <%end%>
   </form>
 
-  <form>
-    <div id="ward">
-    </div>
-  </form>
+  <%=form_for :patient, url: patient_admission_path(current_user.id), method: "Patch" do |f| %>
+  <div id="ward">
+  </div>
+</form>
 </div>
+<%end%>
 
 <script>
 $('input[type=radio][name=optradio]').change(function () {
   // check radio button value by this.value
   // hide div blocks by $('div#id').hide();
-  console.log(this.value);
   if (this.value === 'A') {
     $('#ward').html('<%=j render :partial => "warda" %>')
   } else if (this.value === 'B1') {
