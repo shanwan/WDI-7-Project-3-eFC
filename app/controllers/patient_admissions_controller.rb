@@ -34,7 +34,7 @@ class PatientAdmissionsController < ApplicationController
       @subsidyB2 = 0.4
       @subsidyB1 = 0.2
       @subsidyA = 0
-    elsif @income > 4000 && @income < 6000
+    else @income > 4000 && @income < 6000
       @subsidyC = 0.4
       @subsidyB2 = 0.2
       @subsidyB1 = 0
@@ -44,6 +44,10 @@ class PatientAdmissionsController < ApplicationController
     @patient = PatientAdmission.find_by(user_id: current_user.id)
     @ward = Ward.all
     @wardA = Ward.find_by(ward_type: 'A')
+    @wardB1 = Ward.find_by(ward_type: 'B1')
+    @wardB2 = Ward.find_by(ward_type: 'B2')
+    @wardC = Ward.find_by(ward_type: 'C')
+
     # puts "**************** new"
     # puts @ward
     # puts "**************** new"
@@ -51,6 +55,11 @@ class PatientAdmissionsController < ApplicationController
 
   def show
     @patient = PatientAdmission.find_by! user_id: current_user.id, confirm: false
+    # if @patient
+    #   redirect_to patient_admission_path
+    # else
+    #   render 'edit'
+    # end
     # how to refer to the current admission
     # @patient = PatientAdmission.where(:user_id => params[current_user.id], :confirm => params['false'])
   end

@@ -1,0 +1,27 @@
+<div class="container-fluid">
+  <fieldset>
+    <legend> Bill Based On Ward C Chosen </legend>
+
+    <p>
+      <label>Subsidy available to you based on means testing</label><br>
+      <%=@subsidyC * 100 %>% <br>
+      <label> Length of stay </label><br>
+      <%=@patient.length_of_stay%><br>
+      <label> Cost per day </label><br>
+      $ <%=@wardC.cost_per_day%><br>
+      <label> Before Subsidy </label><br>
+      $ <%= @wardC.cost_per_day * @patient.length_of_stay %><br>
+      <label> After Subsidy </label><br>
+      $ <%= @aftersubsidy = @wardC.cost_per_day * @patient.length_of_stay %><br>
+      <label> Medisave Claimable </label><br>
+      $ <%=@patient_record.medisave%><br>
+      <label> Cash payable </label><br>
+      $ <% if @patient_record.medisave - @aftersubsidy > 0 %>
+      <%= 0 %>
+      <% else %>
+      <% (@patient_record.medisave - @aftersubsidy).abs %>
+      <% end %>
+      <!-- have to put in logic that the ward availability number reduces after selection -->
+    </p>
+  </fieldset>
+</div>
