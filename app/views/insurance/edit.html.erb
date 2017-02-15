@@ -1,0 +1,24 @@
+This is the insurance edit page
+<%= form_for :insurance, url: insurance_path(@insurance), html: {method: "patch"} do |t| %>
+  <div>
+  <%= t.label :insurance_company %>
+  <%= t.text_area :insurance_company %>
+  </div>
+
+  <div>
+  <%= t.label :insurance_name %>
+  <%= t.text_field :insurance_name%>
+  </div>
+
+  <div>
+  <%= t.label :insurance_type %>
+  <%= t.text_field :insurance_type %>
+  </div>
+
+  <div>
+  <%= t.label :claimable_amount %>
+  <%= t.text_field :claimable_amount%>
+  </div>
+
+  <%= t.submit %>
+<% end %>

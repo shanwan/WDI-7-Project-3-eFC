@@ -1,0 +1,8 @@
+<%= form_for :insurance, url: insurance_index_path do |f| %>
+  <%= f.text_field :insurance_company, placeholder: "Enter name of insurance provider" %>
+  <%= f.text_field :insurance_name, placeholder: "Enter name of policy" %>
+  <%= f.text_field :insurance_type, placeholder: "Enter type of policy" %>
+  <%= f.text_field :claimable_amount, placeholder: "Enter the claimable amount" %>
+  <%= f.submit "Register" %>
+<% end %>
+This is insurance new page
