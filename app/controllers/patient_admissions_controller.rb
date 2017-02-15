@@ -47,10 +47,6 @@ class PatientAdmissionsController < ApplicationController
     @wardB1 = Ward.find_by(ward_type: 'B1')
     @wardB2 = Ward.find_by(ward_type: 'B2')
     @wardC = Ward.find_by(ward_type: 'C')
-
-    # puts "**************** new"
-    # puts @ward
-    # puts "**************** new"
   end
 
   def show
@@ -66,13 +62,75 @@ class PatientAdmissionsController < ApplicationController
 
   def edit
     @patient = PatientAdmission.find_by(user_id: params[:user_id])
+    @patient_record = Patient.find_by(id: current_user.id)
+    @income = @patient_record.income
+
+    if @income < 3200
+      @subsidyC = 0.8
+      @subsidyB2 = 0.6
+      @subsidyB1 = 0.4
+      @subsidyA = 0
+    elsif @income > 3200 && @income < 4000
+      @subsidyC = 0.6
+      @subsidyB2 = 0.4
+      @subsidyB1 = 0.2
+      @subsidyA = 0
+    else @income > 4000 && @income < 6000
+      @subsidyC = 0.4
+      @subsidyB2 = 0.2
+      @subsidyB1 = 0
+      @subsidyA = 0
+    end
+
+    @patient = PatientAdmission.find_by(user_id: current_user.id)
+    @ward = Ward.all
+    @wardA = Ward.find_by(ward_type: 'A')
+    @wardB1 = Ward.find_by(ward_type: 'B1')
+    @wardB2 = Ward.find_by(ward_type: 'B2')
+    @wardC = Ward.find_by(ward_type: 'C')
   end
 
   def update
     @patient = PatientAdmission.find_by(user_id: params[:user_id])
 
+    @income = @patient_record.income
+
+    if @income < 3200
+      @subsidyC = 0.8
+      @subsidyB2 = 0.6
+      @subsidyB1 = 0.4
+      @subsidyA = 0
+    elsif @income > 3200 && @income < 4000
+      @subsidyC = 0.6
+      @subsidyB2 = 0.4
+      @subsidyB1 = 0.2
+      @subsidyA = 0
+    else @income > 4000 && @income < 6000
+      @subsidyC = 0.4
+      @subsidyB2 = 0.2
+      @subsidyB1 = 0
+      @subsidyA = 0
+    end
+
+    @patient = PatientAdmission.find_by(user_id: current_user.id)
+    @ward = Ward.all
+    @wardA = Ward.find_by(ward_type: 'A')
+    @wardB1 = Ward.find_by(ward_type: 'B1')
+    @wardB2 = Ward.find_by(ward_type: 'B2')
+    @wardC = Ward.find_by(ward_type: 'C')
+
     if @patient.update(patient_admission_params)
-      redirect_to @PatientAdmission
+      p '*' * 50
+      if (params[:ward_selected] == 'A')
+        @wardA.availability -= 1
+      elsif (params[:ward_selected] == 'B1')
+        @wardB1.availability -= 1
+      elsif (params[:ward_selected] == 'B2')
+        @wardB2.availability -= 1
+      elsif (params[:ward_selected] == 'C')
+        @wardC.availability -= 1
+      end
+      redirect_to patient_admissions_path
     else
       render 'edit'
     end
@@ -84,7 +142,7 @@ class PatientAdmissionsController < ApplicationController
   private
 
   def patient_admission_params
-    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :id)
+    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash)
   end
 
 end

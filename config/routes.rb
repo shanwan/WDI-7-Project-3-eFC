@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   # get "mcaf" => "patients#mcaf"
   # patch "mcaf" => "patients#mcafupdate"
   resources :users
+  resources :wards do
+    patch 'reduce' => 'wards#reduce'
+  end
   resources :patients do
     member do
       get :edit2

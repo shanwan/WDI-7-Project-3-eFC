@@ -13,17 +13,15 @@
     <%end%>
   </form>
 
-  <form>
-    <div id="ward">
-    </div>
-  </form>
+  <div id="ward">
+  </div>
+</form>
 </div>
 
 <script>
 $('input[type=radio][name=optradio]').change(function () {
   // check radio button value by this.value
   // hide div blocks by $('div#id').hide();
-  console.log(this.value);
   if (this.value === 'A') {
     $('#ward').html('<%=j render :partial => "warda" %>')
   } else if (this.value === 'B1') {
