@@ -1,5 +1,11 @@
 <% flash.each do |key, value| %>
-  <div class="alert alert-<%= key %>">
+  <div class="alert container alert-<%= key %>">
+    <%if key == 'danger'%>
+    <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <%= value %>
+    <%else%>
+    <span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span>
+    <%= value %>
+    <%end%>
   </div>
 <% end %>

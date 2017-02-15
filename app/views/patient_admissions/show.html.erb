@@ -1,10 +1,23 @@
-<div class="jumbotron">
-<h1>PatientAdmissions#show patient latest history</h1>
+<div class="container page-header">
+  <h1>Your Lastest Admission Summary</h1>
 </div>
-<p>Find me in app/views/patient_admissions/show.html.erb</p>
 
-<%= @current_user.name %>
-<%= @patient.inspect %>
+<div class="container">
+  <h3>Your name is: <%= @current_user.name %> </h3>
+  <br>
+  <table class="responstable">
 
+    <tr>
+      <th>Description</th>
+      <th>Details</th>
+    </tr>
 
-<%= link_to "Next", edit_patient_path %>
+    <tr>
+      <td>Treatment</td>
+      <td><%= @patient.treatment %></td>
+    </tr>
+
+  </table>
+    <%= link_to "Next", edit_patient_path %>
+
+  </div>
