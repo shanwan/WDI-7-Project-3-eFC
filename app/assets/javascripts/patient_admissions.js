@@ -1,21 +1,7 @@
-<h1>PatientAdmissions#edit</h1>
-<p>Find me in app/views/patient_admissions/edit.html.erb</p>
+// # Place all the behaviors and hooks related to the matching controller here.
+// # All this logic will automatically be available in application.js.
+// # You can use CoffeeScript in this file: http://coffeescript.org/
 
-<div class="container" style="border:1px solid black">
-  <h4>Ward selection: </h4><br>
-  <% @ward.each do |w| %>
-  <label class="radio-inline">
-    <input type="radio" name="optradio" value="<%=w.ward_type%>"> Ward: <%= w.ward_type %> |
-    <span> Availability: <%= w.availability %></span>
-  </label>
-  <%end%>
-
-  <div id="ward">
-  </div>
-</form>
-</div>
-
-<script>
 $('input[type=radio][name=optradio]').change(function () {
   // check radio button value by this.value
   // hide div blocks by $('div#id').hide();
@@ -29,4 +15,3 @@ $('input[type=radio][name=optradio]').change(function () {
     $('#ward').html('<%=j render :partial => "wardc" %>')
   }
 })
-</script>

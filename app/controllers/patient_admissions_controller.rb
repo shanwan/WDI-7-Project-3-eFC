@@ -1,5 +1,4 @@
 class PatientAdmissionsController < ApplicationController
-
   before_action :is_authenticated
 
   def index
@@ -12,20 +11,20 @@ class PatientAdmissionsController < ApplicationController
     @income = @patient_record.income
 
     if @income < 3200
-      @subsidyC = 0.8
-      @subsidyB2 = 0.6
-      @subsidyB1 = 0.4
-      @subsidyA = 0
+      @subsidy_C = 0.8
+      @subsidy_B2 = 0.6
+      @subsidy_B1 = 0.4
+      @subsidy_A = 0
     elsif @income > 3200 && @income < 4000
-      @subsidyC = 0.6
-      @subsidyB2 = 0.4
-      @subsidyB1 = 0.2
-      @subsidyA = 0
-    else @income > 4000 && @income < 6000
-      @subsidyC = 0.4
-      @subsidyB2 = 0.2
-      @subsidyB1 = 0
-      @subsidyA = 0
+      @subsidy_C = 0.6
+      @subsidy_B2 = 0.4
+      @subsidy_B1 = 0.2
+      @subsidy_A = 0
+    elsif @income > 4000 && @income < 6000
+      @subsidy_C = 0.4
+      @subsidy_B2 = 0.2
+      @subsidy_B1 = 0
+      @subsidy_A = 0
     end
 
     @patient = PatientAdmission.find_by(user_id: current_user.id)
@@ -53,20 +52,20 @@ class PatientAdmissionsController < ApplicationController
     @income = @patient_record.income
 
     if @income < 3200
-      @subsidyC = 0.8
-      @subsidyB2 = 0.6
-      @subsidyB1 = 0.4
-      @subsidyA = 0
+      @subsidy_C = 0.80
+      @subsidy_B2 = 0.60
+      @subsidy_B1 = 0.40
+      @subsidy_A = 0.00
     elsif @income > 3200 && @income < 4000
-      @subsidyC = 0.6
-      @subsidyB2 = 0.4
-      @subsidyB1 = 0.2
-      @subsidyA = 0
+      @subsidy_C = 0.60
+      @subsidy_B2 = 0.40
+      @subsidy_B1 = 0.20
+      @subsidy_A = 0.00
     else @income > 4000 && @income < 6000
-      @subsidyC = 0.4
-      @subsidyB2 = 0.2
-      @subsidyB1 = 0
-      @subsidyA = 0
+      @subsidy_C = 0.40
+      @subsidy_B2 = 0.20
+      @subsidy_B1 = 0.00
+      @subsidy_A = 0.00
     end
 
     @patient = PatientAdmission.find_by(user_id: current_user.id)
@@ -78,25 +77,25 @@ class PatientAdmissionsController < ApplicationController
   end
 
   def update
-    @patient = PatientAdmission.find_by('user_id': current_user.id)
+    @patient = PatientAdmission.find_by(user_id: current_user.id)
     @patient_record = Patient.find_by(id: current_user.id)
     @income = @patient_record.income
 
     if @income < 3200
-      @subsidyC = 0.8
-      @subsidyB2 = 0.6
-      @subsidyB1 = 0.4
-      @subsidyA = 0
+      @subsidy_C = 0.8
+      @subsidy_B2 = 0.6
+      @subsidy_B1 = 0.4
+      @subsidy_A = 0
     elsif @income > 3200 && @income < 4000
-      @subsidyC = 0.6
-      @subsidyB2 = 0.4
-      @subsidyB1 = 0.2
-      @subsidyA = 0
+      @subsidy_C = 0.6
+      @subsidy_B2 = 0.4
+      @subsidy_B1 = 0.2
+      @subsidy_A = 0
     else @income > 4000 && @income < 6000
-      @subsidyC = 0.4
-      @subsidyB2 = 0.2
-      @subsidyB1 = 0
-      @subsidyA = 0
+      @subsidy_C = 0.4
+      @subsidy_B2 = 0.2
+      @subsidy_B1 = 0
+      @subsidy_A = 0
     end
 
     @ward = Ward.all

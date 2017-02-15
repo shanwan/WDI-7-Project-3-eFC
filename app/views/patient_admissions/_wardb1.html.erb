@@ -4,7 +4,7 @@
 
   <p>
     <label>Subsidy available to you based on means testing</label><br>
-    <%=@subsidyB1 * 100 %>% <br>
+    <%=@subsidy_B1 * 100 %>% <br>
     <label> Length of stay </label><br>
     <%=@patient.length_of_stay%><br>
     <label> Cost per day </label><br>
@@ -12,7 +12,7 @@
     <label> Before Subsidy </label><br>
     $ <%= f.text_field :bill_amount, value: @wardB1.cost_per_day * @patient.length_of_stay %><br>
     <label> After Subsidy </label><br>
-    $ <%= @aftersubsidy = @wardB1.cost_per_day * @patient.length_of_stay * (1 - @subsidyB1) %><br>
+    $ <%= @aftersubsidy = @wardB1.cost_per_day * @patient.length_of_stay * (1 - @subsidy_B1) %><br>
     <label> Medisave Claimable </label><br>
     <% if @patient_record.medisave > @aftersubsidy %>
     $ <%=f.text_field :claim_medisave, value:  @aftersubsidy %>
