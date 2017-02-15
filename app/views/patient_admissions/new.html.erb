@@ -13,12 +13,10 @@
     <%end%>
   </form>
 
-  <%=form_for :patient, url: patient_admission_path(current_user.id), method: "Patch" do |f| %>
   <div id="ward">
   </div>
 </form>
 </div>
-<%end%>
 
 <script>
 $('input[type=radio][name=optradio]').change(function () {

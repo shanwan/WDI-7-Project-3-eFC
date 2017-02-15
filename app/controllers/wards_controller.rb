@@ -13,10 +13,14 @@ class WardsController < ApplicationController
 
   def update
     @ward = Ward.find(params[:id])
-    if @ward.update(patient_params)
-    redirect_to #???
-    else
-    render 'edit' #???
-    end
+    @ward.update(patient_params)
+    # if @ward.update(patient_params)
+    # redirect_to #???
+    # else
+    # render 'edit' #???
+    # end
+  end
+
+  def reduce
   end
 end
