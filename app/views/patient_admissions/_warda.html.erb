@@ -22,6 +22,7 @@
     <% f.text_field :pay_cash, value: (@patient_record.medisave - @aftersubsidy).abs %>
     <% end %>
     <%= f.hidden_field :ward_selected, value: 'A' %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
     <%= f.submit %>
   </p>
 </fieldset>

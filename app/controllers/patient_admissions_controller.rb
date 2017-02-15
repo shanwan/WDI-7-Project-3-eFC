@@ -91,8 +91,9 @@ class PatientAdmissionsController < ApplicationController
   end
 
   def update
-    @patient = PatientAdmission.find_by(user_id: params[:user_id])
-
+    # @patient = PatientAdmission.find_by(id: params[:patient_admissions_id])
+    @patient = PatientAdmission.find_by('user_id': current_user.id)
+    @patient_record = Patient.find_by(id: current_user.id)
     @income = @patient_record.income
 
     if @income < 3200
@@ -112,26 +113,27 @@ class PatientAdmissionsController < ApplicationController
       @subsidyA = 0
     end
 
-    @patient = PatientAdmission.find_by(user_id: current_user.id)
     @ward = Ward.all
     @wardA = Ward.find_by(ward_type: 'A')
     @wardB1 = Ward.find_by(ward_type: 'B1')
     @wardB2 = Ward.find_by(ward_type: 'B2')
     @wardC = Ward.find_by(ward_type: 'C')
 
-    if @patient.update(patient_admission_params)
+
+    if @patient.update!(patient_admission_params)
       p '*' * 50
-      if (params[:ward_selected] == 'A')
-        @wardA.availability -= 1
-      elsif (params[:ward_selected] == 'B1')
-        @wardB1.availability -= 1
-      elsif (params[:ward_selected] == 'B2')
-        @wardB2.availability -= 1
-      elsif (params[:ward_selected] == 'C')
-        @wardC.availability -= 1
+      if (patient_admission_params[:ward_selected] == 'A')
+        @wardA.change_availability
+      elsif (patient_admission_params[:ward_selected] == 'B1')
+        @wardB1.change_availability -= 1
+      elsif (patient_admission_params[:ward_selected] == 'B2')
+        @wardB2.change_availability -= 1
+      elsif (patient_admission_params[:ward_selected] == 'C')
+        @wardC.change_availability -= 1
       end
       redirect_to patient_admissions_path
     else
+      p '*' * 50
       render 'edit'
     end
   end
@@ -142,7 +144,7 @@ class PatientAdmissionsController < ApplicationController
   private
 
   def patient_admission_params
-    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash)
+    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash)
   end
 
 end
