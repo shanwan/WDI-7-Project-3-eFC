@@ -1,0 +1,28 @@
+<%=form_for :patient, url: patient_admission_path(current_user.id), method: "Patch" do |f| %>
+  <fieldset>
+    <legend> Bill Based On Ward B1 Chosen </legend>
+
+    <p>
+      <label>Subsidy available to you based on means testing</label><br>
+      <%=@subsidyB1 * 100 %>% <br>
+      <label> Length of stay </label><br>
+      <%=@patient.length_of_stay%><br>
+      <label> Cost per day </label><br>
+      $ <%=@wardB1.cost_per_day%><br>
+      <label> Before Subsidy </label><br>
+      $ <%= f.text_field :bill_amount, value: @wardB1.cost_per_day * @patient.length_of_stay %><br>
+      <label> After Subsidy </label><br>
+      $ <%= @aftersubsidy = @wardB1.cost_per_day * @patient.length_of_stay %><br>
+      <label> Medisave Claimable </label><br>
+      $ <%=f.text_field :claim_medisave, value:  @patient_record.medisave%><br>
+      <label> Cash payable </label><br>
+      $ <% if @patient_record.medisave - @aftersubsidy > 0 %>
+      <%= f.text_field :pay_cash, value: 0 %>
+      <% else %>
+      <% f.text_field :pay_cash, value: (@patient_record.medisave - @aftersubsidy).abs %>
+      <% end %>
+      <%= f.hidden_field :ward_selected, value: 'B1' %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit %>
+    </p>
+  </fieldset>

@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
+
   get "login" => "sessions#new"
   post "login" => "sessions#create"
   delete "logout" => "sessions#destroy"
   # get "mcaf" => "patients#mcaf"
   # patch "mcaf" => "patients#mcafupdate"
   resources :users
+  resources :wards do
+    patch 'reduce' => 'wards#reduce'
+  end
   resources :patients do
     member do
       get :edit2

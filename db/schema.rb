@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170214071018) do
+ActiveRecord::Schema.define(version: 20170215050603) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,11 @@ ActiveRecord::Schema.define(version: 20170214071018) do
     t.index ["user_id"], name: "index_insurance_tables_on_user_id", using: :btree
   end
 
+  create_table "mymailers", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "patient_admissions", force: :cascade do |t|
     t.text     "treatment"
     t.string   "NRIC"
@@ -52,6 +57,8 @@ ActiveRecord::Schema.define(version: 20170214071018) do
     t.datetime "created_at",                        null: false
     t.datetime "updated_at",                        null: false
     t.integer  "user_id"
+    t.integer  "claim_medisave"
+    t.integer  "pay_cash"
     t.index ["user_id"], name: "index_patient_admissions_on_user_id", using: :btree
   end
 

@@ -12,19 +12,24 @@
     </label>
     <%end%>
   </form>
+
+  <div id="ward">
+  </div>
+</form>
 </div>
 
-Patient Name:
-NRIC:
-Treatment:
-Length of stay:
-Start treatment:
-End treatment:
-Doctor-in-charge:
-
-<form>
-  <div class="container" style="border:1px solid black">
-    <%= render 'partials/warda' %> DOM manipulation -> onclick do something
-    # page renders based on the wards selected
-  </form>
-</div>
+<script>
+$('input[type=radio][name=optradio]').change(function () {
+  // check radio button value by this.value
+  // hide div blocks by $('div#id').hide();
+  if (this.value === 'A') {
+    $('#ward').html('<%=j render :partial => "warda" %>')
+  } else if (this.value === 'B1') {
+    $('#ward').html('<%=j render :partial => "wardb1" %>')
+  } else if (this.value === 'B2') {
+    $('#ward').html('<%=j render :partial => "wardb2" %>')
+  } else if (this.value === 'C') {
+    $('#ward').html('<%=j render :partial => "wardc" %>')
+  }
+})
+</script>
