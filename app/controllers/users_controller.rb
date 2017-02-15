@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:success] = "Account Created. Please Login"
+      # Tell the UserMailer to send a welcome email after save
+      UserMailer.welcome_email(@user).deliver_now
+
+      flash[:success] = "Account created & email sent. Please Login"
       redirect_to root_path
     else
       render :new
