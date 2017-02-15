@@ -121,7 +121,6 @@ class PatientAdmissionsController < ApplicationController
 
 
     if @patient.update!(patient_admission_params)
-      p '*' * 50
       if (patient_admission_params[:ward_selected] == 'A')
         @wardA.change_availability
       elsif (patient_admission_params[:ward_selected] == 'B1')
@@ -133,7 +132,6 @@ class PatientAdmissionsController < ApplicationController
       end
       redirect_to patient_admissions_path
     else
-      p '*' * 50
       render 'edit'
     end
   end

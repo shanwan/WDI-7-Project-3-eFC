@@ -1,4 +1,4 @@
-
+<%=form_for :patient, url: patient_admission_path(current_user.id), method: "Patch" do |f| %>
   <fieldset>
     <legend> Bill Based On Ward B1 Chosen </legend>
 
@@ -10,17 +10,19 @@
       <label> Cost per day </label><br>
       $ <%=@wardB1.cost_per_day%><br>
       <label> Before Subsidy </label><br>
-      $ <%= @wardB1.cost_per_day * @patient.length_of_stay %><br>
+      $ <%= f.text_field :bill_amount, value: @wardB1.cost_per_day * @patient.length_of_stay %><br>
       <label> After Subsidy </label><br>
       $ <%= @aftersubsidy = @wardB1.cost_per_day * @patient.length_of_stay %><br>
       <label> Medisave Claimable </label><br>
-      $ <%=@patient_record.medisave%><br>
+      $ <%=f.text_field :claim_medisave, value:  @patient_record.medisave%><br>
       <label> Cash payable </label><br>
       $ <% if @patient_record.medisave - @aftersubsidy > 0 %>
-      <%= 0 %>
+      <%= f.text_field :pay_cash, value: 0 %>
       <% else %>
-      <% (@patient_record.medisave - @aftersubsidy).abs %>
+      <% f.text_field :pay_cash, value: (@patient_record.medisave - @aftersubsidy).abs %>
       <% end %>
-      <!-- have to put in logic that the ward availability number reduces after selection -->
+      <%= f.hidden_field :ward_selected, value: 'B1' %>
+      <%= f.hidden_field :user_id, value: current_user.id %>
+      <%= f.submit %>
     </p>
   </fieldset>
