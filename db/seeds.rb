@@ -9,86 +9,147 @@
 ActiveRecord::Base.transaction do
   # Users
   tan_Ah_Kow = User.create(
-    name: 'Tan Ah Kow',
-    personal_id: 'S1234567A',
-    email: 'footprintz1234@gmail.com',
-    password: '12345678',
-    contact_no: '12345678',
+  name: 'Tan Ah Kow',
+  personal_id: 'S1234567A',
+  email: 'footprintz1234@gmail.com',
+  password: '12345678',
+  contact_no: '12345678',
   )
   lee_Ah_Lian = User.create(
-    name: 'Lee Ah Lian',
-    personal_id: 'S1234567B',
-    email: 'stephanietanlf@gmail.com',
-    password: '12345678',
-    contact_no: '12345678',
+  name: 'Lee Ah Lian',
+  personal_id: 'S1234567B',
+  email: 'stephanietanlf@gmail.com',
+  password: '12345678',
+  contact_no: '12345678',
   )
   huat_Ah_Gu = User.create(
-    name: 'Huat Ah Gu',
-    personal_id: 'S1234567C',
-    email: 'ahhhguuu@gmail.com',
-    password: '12345678',
-    contact_no: '12345678',
+  name: 'Huat Ah Gu',
+  personal_id: 'S1234567C',
+  email: 'ahhhguuu@gmail.com',
+  password: '12345678',
+  contact_no: '12345678',
   )
 
   # Patients
   tan_Ah_Kow = Patient.create(
-    name: 'Tan Ah Kow',
-    age: 90,
-    income: 0,
-    medisave: 5000,
-    user: [tan_Ah_Kow],
+  name: 'Tan Ah Kow',
+  age: 90,
+  income: 0,
+  medisave: 5000,
+  user: [tan_Ah_Kow],
   )
   lee_Ah_Lian = Patient.create(
-    name: 'Lee Ah Lian',
-    age: 50,
-    income: 150000,
-    medisave: 60000,
-    user: [lee_Ah_Lian],
+  name: 'Lee Ah Lian',
+  age: 50,
+  income: 150000,
+  medisave: 60000,
+  user: [lee_Ah_Lian],
   )
   huat_Ah_Gu = Patient.create(
-    name: 'Huat Ah Gu',
-    age: 30,
-    income: 60000,
-    medisave: 30000,
-    user: [huat_Ah_Gu],
+  name: 'Huat Ah Gu',
+  age: 30,
+  income: 60000,
+  medisave: 30000,
+  user: [huat_Ah_Gu],
   )
 
   #patient_admissions
   admission_1 = PatientAdmission.create(
-    treatment: 'test treatment',
-    
+  treatment: 'test treatment',
+  personal_id: 'S1234567A',
+  length_of_stay: 2,
+  start_treatment: DateTime.new(2016,2,16),
+  end_treatment: DateTime.new(2016,2,17),
+  doctor_in_charge: 'dr lim',
+  ward_selected: 'C',
+  bill_amount: 100,
+  financial_counsel: true,
+  claim_medisave: 0,
+  pay_cash: 100,
+  confirm: true,
+  user: [tan_Ah_Kow],
   )
-  wish_i_was_here = Movie.create(
-    title: 'Wish I was Here',
-    summary: 'Aidan Bloom is a 35-year-old man who finds himself at major crossroads, which forces him to examine his life, his career, and his family.',
-    youtube_embed_id: 'aCponfeWNOI',
-    thumbnail: 'wish_i_was_here.jpg',
-    actors: [zach_braff, kate_hudson]
+  admission_2 = PatientAdmission.create(
+  treatment: 'test treatment',
+  personal_id: 'S1234567B',
+  length_of_stay: 3,
+  start_treatment: DateTime.new(2016,2,16),
+  end_treatment: DateTime.new(2016,2,18),
+  doctor_in_charge: 'dr chee',
+  ward_selected: 'A',
+  bill_amount: 1000,
+  financial_counsel: false,
+  claim_medisave: 1000,
+  pay_cash: 0,
+  confirm: true,
+  user: [lee_Ah_Lian],
   )
-  a_night_at_the_roxbury = Movie.create(
-    title: 'A Night at the Roxbury',
-    summary: 'Two dim-witted brothers dream of owning their own dance club or at least getting into the coolest and most exclusive club in town, The Roxbury.',
-    youtube_embed_id: 'Xvl3qJe9L9g',
-    thumbnail: 'a_night_at_the_roxbury.jpg',
-    actors: [will_ferrel, chris_kattan]
+  admission_3 = PatientAdmission.create(
+  treatment: 'test treatment',
+  personal_id: 'S1234567C',
+  length_of_stay: 7,
+  start_treatment: DateTime.new(2016,2,16),
+  end_treatment: DateTime.new(2016,2,22),
+  doctor_in_charge: 'dr kays',
+  ward_selected: 'B1',
+  bill_amount: 700,
+  financial_counsel: false,
+  claim_medisave: 700,
+  pay_cash: 0,
+  confirm: true,
+  user: [huat_Ah_Gu],
+  )
+  admission_4 = PatientAdmission.create(
+  treatment: 'test treatment',
+  personal_id: 'S1234567A',
+  length_of_stay: 5,
+  start_treatment: DateTime.new(2017,2,16),
+  end_treatment: DateTime.new(2017,2,20),
+  doctor_in_charge: 'dr lim',
+  confirm: false,
+  user: [tan_Ah_Kow]
+  )
+  admission_5 = PatientAdmission.create(
+  treatment: 'test treatment',
+  personal_id: 'S1234567B',
+  length_of_stay: 9,
+  start_treatment: DateTime.new(2017,2,16),
+  end_treatment: DateTime.new(2017,2,24),
+  doctor_in_charge: 'dr han',
+  confirm: false,
+  user: [lee_Ah_Lian]
+  )
+  admission_6 = PatientAdmission.create(
+  treatment: 'test treatment',
+  personal_id: 'S1234567C',
+  length_of_stay: 2,
+  start_treatment: DateTime.new(2017,2,16),
+  end_treatment: DateTime.new(2017,2,17),
+  doctor_in_charge: 'dr wong',
+  confirm: false,
+  user: [huat_Ah_Gu]
   )
 
-  # Reviews
-  Review.create(
-    body: 'It has often been said that Wes Anderson walks the fine line between folly and genius. In the "Grand Budapest Hotel", however, this distinction no longer exists: the ridiculous becomes brilliant, and brilliant has never been this ridiculous.',
-    user: brooks,
-    movie: the_grand_budapest_hotel
+  #wards
+  ward_a = Ward.create(
+  ward_type: 'A',
+  availability: 50,
+  cost_per_day: 428,
   )
-  Review.create(
-    body: 'I for for one really enjoyed this movie. I saw it at a screening in Toronto. If you were a fan of Garden State you will love this movie. ',
-    user: otto,
-    movie: wish_i_was_here
+  ward_b1 = Ward.create(
+  ward_type: 'B1',
+  availability: 20,
+  cost_per_day: 75,
   )
-  Review.create(
-    body: 'Emilioooooh!',
-    user: luna,
-    movie: a_night_at_the_roxbury
+  ward_b2 = Ward.create(
+  ward_type: 'B2',
+  availability: 10,
+  cost_per_day: 60,
   )
-
+  ward_c = Ward.create(
+  ward_type: 'C',
+  availability: 5,
+  cost_per_day: 35,
+  )
   puts 'Successfully added seed data'
 end
