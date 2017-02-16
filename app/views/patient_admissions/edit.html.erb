@@ -1,18 +1,23 @@
-<h1>PatientAdmissions#edit</h1>
-<p>Find me in app/views/patient_admissions/edit.html.erb</p>
-
-<div class="container" style="border:1px solid black">
-  <h4>Ward selection: </h4><br>
-  <% @ward.each do |w| %>
-  <label class="radio-inline">
-    <input type="radio" name="optradio" value="<%=w.ward_type%>"> Ward: <%= w.ward_type %> |
-    <span> Availability: <%= w.availability %></span>
-  </label>
-  <%end%>
-
-  <div id="ward">
+<div class="container">
+  <div class="page header">
+    <h1> Your Bill <small> <br> Click on the various ward selections to determine your estimated bill size.</small> </h1>
   </div>
-</form>
+
+  <div class="container selectbox">
+    <% @ward.each do |w| %>
+    <label class="radio-inline fontselect">
+      <input type="radio" name="optradio" value="<%=w.ward_type%>"> Ward: <%= w.ward_type %> |
+      <span> Availability: <%= w.availability %></span>
+    </label>
+    <%end%>
+  </div>
+
+  <div class="container">
+    <br>
+    <div id="ward">
+    </div>
+  </form>
+</div>
 </div>
 
 <script>

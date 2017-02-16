@@ -32,6 +32,10 @@
   font-size: 1.8em;
 }
 
+.fontselect {
+  font-size: 1.3em;
+}
+
 .alert {
   font-family: "Roboto", Sans-serif;
   font-size: 1.5em;
@@ -40,6 +44,22 @@
 .btn-primary {
   background: #FA8D62;
 }
+
+.selectbox {
+  border: 2px solid black;
+  border-color: #2B616D;
+  text-align: center;
+  line-height: 50px;
+}
+
+input[type='radio']{
+    margin: 15px;
+}
+
+.wardfont {
+  font-size: 1.2em;
+}
+
 // $table-border-radius: 10px;
 // $table-highlight-color: #EAF3F3;
 // $table-header-background-color: #167F92;
