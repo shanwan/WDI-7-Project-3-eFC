@@ -3,31 +3,33 @@
  <div class="page-header">
    <h1>Record of insurance policies</h1>
  </div>
-<%= "You do not have any insurance policies on record with us" %>
-<%= button_to "Create new entries", new_insurance_path,class:"btn btn-warning button_create_insurance", method: :get %>
-<% else %>
-<div class="container">
-<div class="page-header">
-  <h1>Record of insurance policies</h1>
-</div>
+  <%= "You do not have any insurance policies on record with us" %>
+  <%= button_to "Create new entries", new_insurance_path,class:"btn btn-warning button_create_insurance", method: :get %>
+  <% else %>
+  <div class="container">
+    <div class="page-header">
+      <h1>Record of insurance policies</h1>
+    </div>
+    <%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
+    <br>
    <table id="t1">
+     <th style="width:10%">Insurance Company</th>
+     <th style="width:25%">Policy Name</th>
+     <th style="width:25%">Type of Insurance</th>
+     <th style="width:20%">Claimable Amount</th>
+     <th style="width:10%">Edit Policy</th>
+     <th style="width:10%">Delete Policy</th>
      <% @insurance.each do |i| %>
-     <tr>
-       <th style="width:20%"><%= i.insurance_company %></th>
-       <th style="width:30%"><%= i.insurance_name %></th>
-       <th style="width:20%"><%= i.insurance_type %></th>
-       <th style="width:10%"><%= i.claimable_amount %></th>
-       <th style="width:10%"><%= link_to "Edit", edit_insurance_path(i.id) %></th>
-       <th style="width:10%"><%= button_to "Delete", insurance_path(i.id), method: :delete %></th>
+      <tr>
+       <td style="width:10%"><%= i.insurance_company %></td>
+       <td style="width:25%"><%= i.insurance_name %></td>
+       <td style="width:25%"><%= i.insurance_type %></td>
+       <td style="width:20%"><%= i.claimable_amount %></td>
+       <td style="width:10%"><%= button_to "Edit", edit_insurance_path(i.id) %></td>
+       <td style="width:10%"><%= button_to "Delete", insurance_path(i.id), method: :delete %></td>
      </tr>
      <% end %>
-  </table>
-  <% end %>
+   </table>
+   <% end %>
   <br>
-
-
 <%= button_to 'Bill', edit_patient_admission_path(current_user.id), class: "btn btn-primary btn-lg"  %>
-<%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
-<br>
-
-<%= link_to "Next", edit_patient_admission_path(current_user.id)%>
