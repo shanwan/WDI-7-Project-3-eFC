@@ -125,3 +125,26 @@ patient_admissions = PatientAdmission.create!([
   user_id: users[1].id
 }
 ])
+
+wards = Ward.create!([
+{
+  ward_type: 'A',
+  availability: 50,
+  cost_per_day: 428,
+},
+{
+  ward_type: 'B1',
+  availability: 30,
+  cost_per_day: 75,
+},
+{
+  ward_type: 'B2',
+  availability: 20,
+  cost_per_day: 55,
+},
+{
+  ward_type: 'C',
+  availability: 5,
+  cost_per_day: 35,
+}
+])
