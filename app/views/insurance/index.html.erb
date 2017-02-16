@@ -8,7 +8,7 @@ this is insurance index page<br>
   <li><%= i.insurance_type %></li>
   <li><%= i.claimable_amount %></li>
   <li><%= link_to "Edit", edit_insurance_path(i.id) %></li>
-  <li><%= link_to "Delete", insurance_path(i.id), method: :delete %></li>
+  <li><%= button_to "Delete", insurance_path(i.id), method: :delete %></li>
 </ul>
 
 <% end %>

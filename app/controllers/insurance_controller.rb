@@ -1,5 +1,5 @@
 class InsuranceController < ApplicationController
-# before_action :is_authenticated
+before_action :is_authenticated
 
   def index
     #create an instance to be used, refer to the model,
@@ -51,6 +51,7 @@ class InsuranceController < ApplicationController
     end
 
     def destroy
+
       @insurance=InsuranceTable.find(params[:id])
       @insurance.destroy
       redirect_to insurance_index_path
