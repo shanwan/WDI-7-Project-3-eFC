@@ -1,16 +1,30 @@
-this is insurance index page<br>
-<% if @insurance.length == 0 %>
-<%= "You do not have any insurance policies on record with us" %>
-<% else @insurance.each do |i| %>
-<ul>
-  <li><%= i.insurance_company %></li>
-  <li><%= i.insurance_name %></li>
-  <li><%= i.insurance_type %></li>
-  <li><%= i.claimable_amount %></li>
-  <li><%= link_to "Edit", edit_insurance_path(i.id) %></li>
-  <li><%= button_to "Delete", insurance_path(i.id), method: :delete %></li>
-</ul>
 
-<% end %>
-<% end %><br>
-<a href="/insurance/new/">Create new insurance record</a>
+<% if @insurance.length == 0 %>
+ <div class="page-header">
+   <h1>Record of insurance policies</h1>
+ </div>
+<%= "You do not have any insurance policies on record with us" %>
+<%= button_to "Create new entries", new_insurance_path,class:"btn btn-warning button_create_insurance", method: :get %>
+<% else %>
+<div class="container">
+<div class="page-header">
+  <h1>Record of insurance policies</h1>
+</div>
+   <table id="t1">
+     <% @insurance.each do |i| %>
+     <tr>
+       <th style="width:20%"><%= i.insurance_company %></th>
+       <th style="width:30%"><%= i.insurance_name %></th>
+       <th style="width:20%"><%= i.insurance_type %></th>
+       <th style="width:10%"><%= i.claimable_amount %></th>
+       <th style="width:10%"><%= link_to "Edit", edit_insurance_path(i.id) %></th>
+       <th style="width:10%"><%= button_to "Delete", insurance_path(i.id), method: :delete %></th>
+     </tr>
+     <% end %>
+  </table>
+  <% end %>
+  <br>
+
+<%= button_to 'Bill', edit_patient_admission_path(current_user.id), class: "btn btn-primary btn-lg"  %>
+<%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
+<br>
