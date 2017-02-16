@@ -10,10 +10,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-
-      # flash[:success] = 'Account Created. Please Login.'
-      # redirect_to insurance_index_path
-
       # Tell the UserMailer to send a welcome email after save
       UserMailer.welcome_email(@user).deliver_now
 

@@ -1,8 +1,9 @@
 class PatientAdmissionsController < ApplicationController
   before_action :is_authenticated
+  around_filter :catch_not_found
 
   def index
-    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
+    @patient = PatientAdmission.where(user_id: current_user.id)
     @ward = Ward.all
   end
 
@@ -36,19 +37,9 @@ class PatientAdmissionsController < ApplicationController
   end
 
   def show
-    @patient = PatientAdmission.find_by! user_id: current_user.id, confirm: false
-    if @patient == nil
-      redirect_to user_path(current_user.id)
-    else
-      @patient
-    end
-    # if @patient
-    #   redirect_to patient_admission_path
     # else
-    #   render 'edit'
+    @patient = PatientAdmission.find_by! user_id: current_user.id, confirm: false
     # end
-    # how to refer to the current admission
-    # @patient = PatientAdmission.where(:user_id => params[current_user.id], :confirm => params['false'])
   end
 
   def edit
@@ -121,19 +112,22 @@ class PatientAdmissionsController < ApplicationController
       elsif (patient_admission_params[:ward_selected] == 'C')
         @wardC.change_availability
       end
-      redirect_to patient_admissions_path
+      redirect_to user_path(current_user.id)
     else
       render 'edit'
     end
-  end
-
-  def destroy
   end
 
   private
 
   def patient_admission_params
     params.require(:patient).permit(:personal_id, :means_testing, :user_id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash, :confirm)
+  end
+
+  def catch_not_found
+    yield
+  rescue ActiveRecord::RecordNotFound
+    redirect_to user_path(current_user.id), :flash => { :notice => "You do not have pending admission." }
   end
 
 end
