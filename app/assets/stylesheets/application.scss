@@ -37,6 +37,9 @@
   font-size: 1.5em;
 }
 
+.btn-primary {
+  background: #FA8D62;
+}
 // $table-border-radius: 10px;
 // $table-highlight-color: #EAF3F3;
 // $table-header-background-color: #167F92;
@@ -134,6 +137,19 @@
 
  $footer-header-height: 102px;
  $footer-body-height: 50px;
+
+table, th, td {
+  background-color: #FFF;
+  color: #024457;
+  border: 3px solid #167F92;
+  padding: 20px;
+  font-size: 20px;
+}
+
+th {
+  font-size: 20px;
+}
+
 
  html {
    position: relative;
