@@ -1,15 +1,17 @@
-<div class="container jumbotron">
-<h1>Register</h1>
+<div class="container">
+  <div class="page-header">
+    <h1>Register</h1>
+  </div>
+
+  <div>
+  <%= form_for @user, url: users_path do |f| %>
+  <%= f.text_field :personal_id, placeholder: "Enter your personal_id/FIN", class: 'form-control fontinput' %> <br>
+  <%= f.text_field :name, placeholder: "Enter your name", class: 'form-control fontinput' %> <br>
+  <%= f.text_field :email, placeholder: "Enter your email", class: 'form-control fontinput' %> <br>
+  <%= f.text_field :password, placeholder: "Enter your password", class: 'form-control fontinput' %> <br>
+  <%= f.text_field :contact_no, placeholder: "Enter your contact number", class: 'form-control fontinput' %> <br>
+
+  <%= f.submit "Register", class: 'btn btn-primary btn-lg' %>
+  <% end %>
 </div>
-
-<%= render "partials/flash" %>
-
-<%= form_for @user, url: users_path do |f| %>
-  <%= f.text_field :personal_id, placeholder: "Enter your personal_id/FIN" %>
-  <%= f.text_field :name, placeholder: "Enter your name" %>
-  <%= f.text_field :email, placeholder: "Enter your email" %>
-  <%= f.text_field :password, placeholder: "Enter your password" %>
-  <%= f.text_field :contact_no, placeholder: "Enter your contact number" %>
-
-  <%= f.submit "Register" %>
-<% end %>
+</div>
