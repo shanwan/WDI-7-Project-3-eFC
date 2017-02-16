@@ -13,4 +13,6 @@ this is insurance index page<br>
 
 <% end %>
 <% end %><br>
-<a href="/insurance/new/">Create new insurance record</a>
+<a href="/insurance/new/">Create new insurance record</a><br>
+
+<%= link_to "Next", patient_admission_path(current_user.id)%>

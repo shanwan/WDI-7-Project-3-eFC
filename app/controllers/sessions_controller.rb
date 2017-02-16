@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       #redirect_to refers to a get command by default as it is
       #the only command to display. *_path is a combination of
       #the RESTful actionss
-      redirect_to insurance_index_path
+      redirect_to patient_admission_path(current_user.id)
     else
       flash[:danger] = "Credentials Invalid!!"
       redirect_to root_path
