@@ -25,6 +25,9 @@
   <% end %>
   <br>
 
+
 <%= button_to 'Bill', edit_patient_admission_path(current_user.id), class: "btn btn-primary btn-lg"  %>
 <%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
 <br>
+
+<%= link_to "Next", edit_patient_admission_path(current_user.id)%>
