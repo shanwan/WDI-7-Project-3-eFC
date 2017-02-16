@@ -8,22 +8,22 @@
 
 ActiveRecord::Base.transaction do
   # Users
-  Tan_Ah_Kow = User.create(
+  tan_Ah_Kow = User.create(
     name: 'Tan Ah Kow',
     personal_id: 'S1234567A',
     email: 'footprintz1234@gmail.com',
     password: '12345678',
     contact_no: '12345678',
   )
-  Lee_Ah_Lian = User.create(
+  lee_Ah_Lian = User.create(
     name: 'Lee Ah Lian',
     personal_id: 'S1234567B',
     email: 'stephanietanlf@gmail.com',
     password: '12345678',
     contact_no: '12345678',
   )
-  Huat_Ah_Gu = User.create(
-    name: 'Huat_Ah_Gu',
+  huat_Ah_Gu = User.create(
+    name: 'Huat Ah Gu',
     personal_id: 'S1234567C',
     email: 'ahhhguuu@gmail.com',
     password: '12345678',
@@ -31,40 +31,28 @@ ActiveRecord::Base.transaction do
   )
 
   # Patients
-  Tan_Ah_Kow = Patient.create(
-    name: 'Tan_Ah_Kow',
+  tan_Ah_Kow = Patient.create(
+    name: 'Tan Ah Kow',
     age: 90,
     income: 0,
-    insurance: true
+    medisave: 5000,
+    user: []
   )
-  jeff_goldblum = Actor.create(
-    name: 'Jeff Goldblum',
-    year_of_birth: 1952,
-    thumbnail: 'jeff_goldblum.jpg'
+  lee_Ah_Lian = Patient.create(
+    name: 'Lee Ah Lian',
+    age: 50,
+    income: 150000,
+    medisave: 60000,
   )
-  will_ferrel = Actor.create(
-    name: 'Will Ferrell',
-    year_of_birth: 1967,
-    thumbnail: 'will_ferrel.jpg'
-  )
-  chris_kattan = Actor.create(
-    name: 'Chris Kattan',
-    year_of_birth: 1970,
-    thumbnail: 'chris_kattan.jpg'
-  )
-  zach_braff = Actor.create(
-    name: 'Zach Braff',
-    year_of_birth: 1975,
-    thumbnail: 'zach_braff.jpg'
-  )
-  kate_hudson = Actor.create(
-    name: 'Kate Hudson',
-    year_of_birth: 1979,
-    thumbnail: 'kate_hudson.jpg'
+  huat_Ah_Gu = Patient.create(
+    name: 'Huat Ah Gu',
+    age: 30,
+    income: 60000,
+    medisave: 30000,
   )
 
-  # Movies
-  the_grand_budapest_hotel = Movie.create(
+  #patient_admissions
+  admission_1 = PatientAdmission.create(
     title: 'The Grand Budapest Hotel',
     summary: 'The adventures of Gustave H, a legendary concierge at a famous hotel from the fictional Republic of Zubrowka between the first and second World Wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend.',
     youtube_embed_id: '1Fg5iWmQjwk',
