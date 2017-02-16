@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-  # before_action :is_authenticated
+  before_action :is_authenticated
 
   def index
     @patient_records = Patient.where(user_id: params[:id])
