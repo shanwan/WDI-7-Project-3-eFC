@@ -36,28 +36,27 @@ ActiveRecord::Base.transaction do
     age: 90,
     income: 0,
     medisave: 5000,
-    user: []
+    user: [tan_Ah_Kow],
   )
   lee_Ah_Lian = Patient.create(
     name: 'Lee Ah Lian',
     age: 50,
     income: 150000,
     medisave: 60000,
+    user: [lee_Ah_Lian],
   )
   huat_Ah_Gu = Patient.create(
     name: 'Huat Ah Gu',
     age: 30,
     income: 60000,
     medisave: 30000,
+    user: [huat_Ah_Gu],
   )
 
   #patient_admissions
   admission_1 = PatientAdmission.create(
-    title: 'The Grand Budapest Hotel',
-    summary: 'The adventures of Gustave H, a legendary concierge at a famous hotel from the fictional Republic of Zubrowka between the first and second World Wars, and Zero Moustafa, the lobby boy who becomes his most trusted friend.',
-    youtube_embed_id: '1Fg5iWmQjwk',
-    thumbnail: 'the_grand_budapest_hotel.jpg',
-    actors: [ralph_fiennes, jeff_goldblum]
+    treatment: 'test treatment',
+    
   )
   wish_i_was_here = Movie.create(
     title: 'Wish I was Here',

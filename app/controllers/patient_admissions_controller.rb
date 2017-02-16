@@ -2,7 +2,7 @@ class PatientAdmissionsController < ApplicationController
   # before_action :is_authenticated
 
   def index
-    @patient = PatientAdmission.find_by(NRIC: params[:NRIC])
+    @patient = PatientAdmission.find_by(personal_id: params[:personal_id])
     @ward = Ward.all
   end
 
@@ -128,7 +128,7 @@ class PatientAdmissionsController < ApplicationController
   private
 
   def patient_admission_params
-    params.require(:patient).permit(:NRIC, :means_testing, :user_id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash, :confirm)
+    params.require(:patient).permit(:personal_id, :means_testing, :user_id, :ward_selected, :bill_amount, :claim_medisave, :pay_cash, :confirm)
   end
 
 end
