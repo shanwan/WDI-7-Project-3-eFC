@@ -10,6 +10,10 @@ class PatientsController < ApplicationController
       @patient_record = Patient.find(params[:id])
     end
 
+    def new2
+     @patient_record = Patient.find(params[:id])
+    end
+
     def edit
       @patient_record = Patient.find(params[:id])
     end
@@ -46,6 +50,13 @@ class PatientsController < ApplicationController
         # you render so that you have the errors stored
       end
     end
+
+  def create2
+    @patient_record = Patient.find(params[:id])
+    @user = User.find(params[:id])
+    PatientMailer.messagemail(@user, @patient_record.next_of_kin_email).deliver_now
+    render 'new'
+  end
 
     # def destroy
     #   @patient = Patient.find(params[:id])

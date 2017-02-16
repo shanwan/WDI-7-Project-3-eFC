@@ -6,15 +6,15 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
 
 
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = {
-  address:              'smtp.gmail.com',
-  port:                 587,
-  domain:               'gmail.com',
-  user_name:            'stephanietanlf',
-  password:             'kangtajobs!',
-  authentication:       'plain',
-  enable_starttls_auto: true  }
+config.action_mailer.delivery_method = :smtp
+config.action_mailer.smtp_settings = {
+address:              'smtp.gmail.com',
+port:                 587,
+domain:               'gmail.com',
+user_name:            'efinancialcounselor',
+password:             'wewontbethebenchmark',
+authentication:       'plain',
+enable_starttls_auto: true  }
 
 
 
