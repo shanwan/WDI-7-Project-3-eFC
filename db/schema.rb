@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170215050603) do
+ActiveRecord::Schema.define(version: 20170216081218) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "formula_tables", force: :cascade do |t|
-    t.string   "Income_Min"
-    t.string   "Income_Max"
-    t.string   "Class_C_SG"
-    t.string   "Class_B2_SG"
-    t.string   "Class_C_PR"
-    t.string   "Class_B2_PR"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "Class_A"
-  end
 
   create_table "insurance_tables", force: :cascade do |t|
     t.string   "insurance_company"
@@ -45,7 +33,7 @@ ActiveRecord::Schema.define(version: 20170215050603) do
 
   create_table "patient_admissions", force: :cascade do |t|
     t.text     "treatment"
-    t.string   "NRIC"
+    t.string   "personal_id"
     t.integer  "length_of_stay"
     t.string   "ward_selected"
     t.integer  "bill_amount"
@@ -66,9 +54,7 @@ ActiveRecord::Schema.define(version: 20170215050603) do
     t.string   "name"
     t.integer  "age"
     t.string   "personal_id"
-    t.string   "residential_type"
     t.integer  "income"
-    t.boolean  "insurance"
     t.integer  "medisave"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
@@ -78,6 +64,8 @@ ActiveRecord::Schema.define(version: 20170215050603) do
     t.boolean  "next_of_kin_POA"
     t.boolean  "means_testing"
     t.boolean  "medisave_access"
+    t.integer  "user_id"
+    t.index ["user_id"], name: "index_patients_on_user_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,7 +79,6 @@ ActiveRecord::Schema.define(version: 20170215050603) do
   end
 
   create_table "wards", force: :cascade do |t|
-    t.string   "hospital"
     t.string   "ward_type"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
@@ -101,4 +88,5 @@ ActiveRecord::Schema.define(version: 20170215050603) do
 
   add_foreign_key "insurance_tables", "users"
   add_foreign_key "patient_admissions", "users"
+  add_foreign_key "patients", "users"
 end

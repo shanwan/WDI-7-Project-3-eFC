@@ -10,7 +10,7 @@
   <thead>
     <%= render 'partials/flash' %>
     <tr>
-      <th>NRIC / FIN</th>
+      <th>personal_id / FIN</th>
       <td><%= current_user.personal_id %></td>
     </tr>
 
@@ -29,8 +29,8 @@
 <%= button_to "Update profile", edit_user_path(current_user.id), class: 'btn btn-lg btn-primary', method: :get %>
 <br>
 
-<%= button_to "Go Back", patient_admission_path(current_user.id), class: 'btn btn-lg btn-primary' %>
+<%= button_to "Your Latest Admission", patient_admission_path(current_user.id), class: 'btn btn-lg btn-primary', method: :get %> <br>
 
-  <%=  current_user.inspect %>
+<%= link_to 'See Past Admissions', patient_admissions_path, class:"btn btn-lg btn-primary" %>
 
 </div>
