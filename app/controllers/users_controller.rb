@@ -29,7 +29,6 @@ class UsersController < ApplicationController
     # upload_file
 
     if @user.update(user_params)
-      debugger
       # delete_old_file
       redirect_to @user, flash[:success] = 'User profile successfully updated.'
     else
