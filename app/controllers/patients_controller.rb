@@ -1,6 +1,6 @@
 class PatientsController < ApplicationController
 
-  before_action :is_authenticated
+  # before_action :is_authenticated
 
     def show
       @patients_record = Patient.find(params[:id])

@@ -1,5 +1,5 @@
 class InsuranceController < ApplicationController
-before_action :is_authenticated
+# before_action :is_authenticated
 
   def index
     #create an instance to be used, refer to the model,
