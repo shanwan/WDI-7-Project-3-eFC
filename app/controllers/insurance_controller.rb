@@ -51,6 +51,7 @@ before_action :is_authenticated
     end
 
     def destroy
+
       @insurance=InsuranceTable.find(params[:id])
       @insurance.destroy
       redirect_to insurance_index_path

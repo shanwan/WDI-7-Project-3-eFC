@@ -1,5 +1,5 @@
 class PatientAdmissionsController < ApplicationController
-  before_action :is_authenticated
+  # before_action :is_authenticated
 
   def index
     @patient = PatientAdmission.find_by(NRIC: params[:NRIC])
