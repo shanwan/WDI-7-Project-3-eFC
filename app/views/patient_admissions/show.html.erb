@@ -49,11 +49,11 @@
     <tr>
       <th>Confirm</th>
       <td><%= @patient.confirm %></td>
-
     </tr>
   </thead>
   </table>
   <br>
-    <%= link_to "Next", edit_patient_path %>
+
+    <%= button_to "Next", edit_patient_path, class: 'btn btn-lg btn-primary' %>
 
   </div>
