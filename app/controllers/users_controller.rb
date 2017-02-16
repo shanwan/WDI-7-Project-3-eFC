@@ -14,6 +14,9 @@ class UsersController < ApplicationController
       # flash[:success] = 'Account Created. Please Login.'
       # redirect_to insurance_index_path
 
+      flash[:success] = 'Account Created. Please Login.'
+      redirect_to patient_admission_path(current_user.id)
+
       # Tell the UserMailer to send a welcome email after save
       UserMailer.welcome_email(@user).deliver_now
 

@@ -2,7 +2,7 @@
 <fieldset>
   <legend> Bill Based On Ward C Chosen </legend>
 
-  <p>
+  <p class="wardfont">
     <label>Subsidy available to you based on means testing</label><br>
     <%=@subsidy_C * 100 %>% <br>
     <label> Length of stay </label><br>
@@ -29,8 +29,8 @@
     <% end %>
     <%= f.hidden_field :ward_selected, value: 'C' %>
     <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :confirm, value: true %> <br>
-    <%= f.submit %>
+    <%= f.hidden_field :confirm, value: true %> <br> <br>
+    <%= f.submit "Save My Selection", class: "btn btn-primary btn-lg" %>
   </p>
 </fieldset>
 <% end %>
