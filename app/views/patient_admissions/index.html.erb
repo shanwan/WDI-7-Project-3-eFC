@@ -1,18 +1,40 @@
 <div class="container">
   <div class="page-header">
     <h1> Your Index Page <br>
-      <small> This lists all your previous admissions </small></h1>
+      <small> This lists all your admissions. </small></h1>
     </div>
   </div>
 
   <div class="container">
-    <% @patient.each do |p| %>
-    <ul>
-      <li><%= p.treatment%></li>
-      <li><%= p.start_treatment%></li>
-      <li><%= p.end_treatment%></li>
-    </ul>
-    <% end %>
+    <% @patient.each_with_index do |p, index| %>
+    <table>
+    <thead>
+      <tr>
+        <th> Admission number </th>
+        <td><%= index + 1 %></td>
+      </tr>
+      <tr>
+        <th> Treatment Description </th>
+        <td><%= p.treatment%></td>
+      </tr>
+      <tr>
+        <th> Start of Treatment </th>
+        <td><%= p.start_treatment%></td>
+      </tr>
+      <tr>
+        <th> End of Treatment </th>
+        <td><%= p.end_treatment%></td>
+      </tr>
+      <tr>
+        <th> Bill Amount </th>
+        <td><%= p.bill_amount%></td>
+      </tr>
+      <tr>
+        <th> Completed Admission </th>
+        <td><%= p.confirm%></td>
+      </tr>
+    </table><br>
+      <% end %>
 
-    <%= link_to 'Personal Details Page', user_path(current_user.id), class:"btn btn-lg btn-primary" %>
-  </div>
+      <%= link_to 'Personal Details Page', user_path(current_user.id), class:"btn btn-lg btn-primary" %>
+    </div>

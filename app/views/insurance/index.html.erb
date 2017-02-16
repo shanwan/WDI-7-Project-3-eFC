@@ -1,41 +1,42 @@
-
+<div class="container">
 <% if @insurance.length == 0 %>
- <div class="page-header">
-   <h1>Record of Insurance Policies</h1>
- </div>
-<%= <h4> "You do not have any insurance policies on record with us" </h4> %>
+<div class="page-header">
+  <h1>Record of Insurance Policies</h1>
+</div>
+<h4>You do not have any insurance policies on record with us. Pls add more for your records.</h4>
 <%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg", method: :get %>
 <% else %>
-<div class="container">
-<div class="page-header">
-  <h1>Record of insurance policies</h1>
-</div>
-<%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
-<br>
-   <table id="t1">
-     <tr>
-       <td> Insurance Company </td>
-       <td> Insurance Name </td>
-       <td> Insurance Type </td>
-       <td> Claimable Amount </td>
-       <td> Edit </td>
-       <td> Delete</td>
-     </tr>
-     <% @insurance.each do |i| %>
-     <tr>
-       <th style="width:20%"><%= i.insurance_company %></th>
-       <th style="width:30%"><%= i.insurance_name %></th>
-       <th style="width:20%"><%= i.insurance_type %></th>
-       <th style="width:10%"><%= i.claimable_amount %></th>
-       <th style="width:10%"><%= link_to "Edit", edit_insurance_path(i.id), class: 'btn btn-primary' %></th>
-       <th style="width:10%"><%= button_to "Delete", insurance_path(i.id), method: :delete, class: 'btn btn-primary' %></th>
-     </tr>
-     <% end %>
-   </table>
-   <% end %>
+  <div class="page-header">
+    <h1>Record of insurance policies</h1>
+  </div>
+  <%= button_to "Create new entries", new_insurance_path, class: "btn btn-primary btn-lg" , method: :get %>
+  <br>
+  <table id="t1">
+    <tr>
+      <td> Insurance Company </td>
+      <td> Insurance Name </td>
+      <td> Insurance Type </td>
+      <td> Claimable Amount </td>
+      <td> Edit </td>
+      <td> Delete</td>
+    </tr>
+    <% @insurance.each do |i| %>
+    <tr>
+      <th style="width:20%"><%= i.insurance_company %></th>
+      <th style="width:30%"><%= i.insurance_name %></th>
+      <th style="width:20%"><%= i.insurance_type %></th>
+      <th style="width:10%"><%= i.claimable_amount %></th>
+      <th style="width:10%"><%= link_to "Edit", edit_insurance_path(i.id), class: 'btn btn-primary' %></th>
+      <th style="width:10%"><%= button_to "Delete", insurance_path(i.id), method: :delete, class: 'btn btn-primary' %></th>
+    </tr>
+    <% end %>
+  </table>
+  <% end %>
   <br>
 
-<%= link_to 'Bill', edit_patient_admission_path(current_user.id), class: "btn btn-primary btn-lg"%>
-<p> </p>
-<%= link_to 'Personal Details Page', user_path(current_user.id), class:"btn btn-lg btn-primary" %>
+  <% if @patient != nil %>
+  <%= link_to 'Bill', edit_patient_admission_path(current_user.id), class: "btn btn-primary btn-lg"%>
+  <% end %>
+  <p> </p>
+  <%= link_to 'Personal Details Page', user_path(current_user.id), class:"btn btn-lg btn-primary" %>
 </div>

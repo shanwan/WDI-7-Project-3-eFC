@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  before_action :is_authenticated
   def show
     @user = User.find(params[:id])
   end
@@ -17,6 +18,7 @@ class UsersController < ApplicationController
       redirect_to login_path
 
     else
+      flash[:error] = @user.errors.full_messages
       render :new
     end
   end
@@ -26,11 +28,10 @@ class UsersController < ApplicationController
   end
 
   def update
-    # upload_file
-
+    @user = User.find(params[:id])
     if @user.update(user_params)
-      # delete_old_file
-      redirect_to @user, flash[:success] = 'User profile successfully updated.'
+      redirect_to @user
+      flash[:success] = 'User profile successfully updated.'
     else
       render :edit
     end

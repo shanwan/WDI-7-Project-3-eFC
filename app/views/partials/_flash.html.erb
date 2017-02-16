@@ -3,7 +3,10 @@
     <%if key == 'danger'%>
     <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
     <%= value %>
-    <%else%>
+    <%elsif key == 'notice'%>
+    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"></span>
+    <%= value %>
+    <%elsif key == 'success'%>
     <span class="glyphicon glyphicon glyphicon-ok" aria-hidden="true"></span>
     <%= value %>
     <%end%>

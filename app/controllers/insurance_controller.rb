@@ -7,6 +7,7 @@ before_action :is_authenticated
     #before executing the following action
     if current_user # if you're logged in
       @insurance = InsuranceTable.where(user_id: current_user.id)
+      @patient = PatientAdmission.find_by user_id: current_user.id, confirm: false
     else
       redirect_to new_insurance_path #prefix_path or prefix_url
     end

@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
 
+
   def create
     user = User.find_and_authenticate_user(user_params)
 

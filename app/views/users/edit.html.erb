@@ -3,7 +3,7 @@
     <h1>Updating...</h1>
   </div>
 
-  <%= form_for @user, method: :patch do |f| %>
+  <%= form_for :user, url: user_path(current_user.id), method: :patch do |f| %>
 
     <%= f.label :name %>
     <%= f.text_field :name, class: 'form-control' %>
@@ -20,3 +20,4 @@
 
     <%= f.button "Save changes", class: 'btn btn-lg btn-primary' %>
   <% end %>
+</div>
