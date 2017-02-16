@@ -1,6 +1,11 @@
 <h1>Patients#show</h1>
 <p>Find me in app/views/patients/show.html.erb</p>
 
-this is the page for insurance summary as reference
+Pls find your selection summary here.
 
-<%= link_to 'Bill', edit_patient_admission_path(current_user.id) %>
+<%#= @patient_record.inspect%>
+<%= @patient_record.bill_amount%>
+
+Click to send a summary to yourself and/or next-of-kin
+
+<%#= link_to 'Bill', edit_patient_admission_path(current_user.id) %>
