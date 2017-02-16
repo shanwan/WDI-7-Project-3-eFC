@@ -35,7 +35,7 @@ class PatientsController < ApplicationController
     def update2
       @patient_record = Patient.find(params[:id])
       if @patient_record.update(patient_params)
-        redirect_to @patient_record
+        redirect_to insurance_index_path
       else
       render 'edit2'
       end
