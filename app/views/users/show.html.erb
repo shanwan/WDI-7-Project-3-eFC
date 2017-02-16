@@ -1,3 +1,36 @@
-this is the user profile page after login
+<div class="container">
+  <div class="container page-header">
 
-what to show???
+    <h1> User Profile | <%= link_to "Insurance Details", insurance_index_path %> | <%= link_to "Next-of-kin Details", edit3_patient_path %></h1>
+
+  </div>
+
+
+<table>
+  <thead>
+    <%= render 'partials/flash' %>
+    <tr>
+      <th>NRIC / FIN</th>
+      <td><%= current_user.personal_id %></td>
+    </tr>
+
+    <tr>
+      <th>Email address</th>
+      <td><%= current_user.email %></td>
+    </tr>
+
+    <tr>
+      <th>Contact number</th>
+      <td><%= current_user.contact_no %></td>
+    </tr>
+
+  </thead>
+</table><br>
+<%= button_to "Update profile", edit_user_path(current_user.id), class: 'btn btn-lg btn-primary', method: :get %>
+<br>
+
+<%= button_to "Go Back", patient_admission_path(current_user.id), class: 'btn btn-lg btn-primary' %>
+
+  <%=  current_user.inspect %>
+
+</div>

@@ -22,6 +22,10 @@ class PatientsController < ApplicationController
       @patient_record = Patient.find(params[:id])
     end
 
+    def edit3
+      @patient_record = Patient.find(params[:id])
+    end
+
     def update
       @patient_record = Patient.find(params[:id])
       if @patient_record.update(patient_params)
@@ -38,6 +42,16 @@ class PatientsController < ApplicationController
         redirect_to insurance_index_path
       else
       render 'edit2'
+      end
+    end
+
+    def update3
+      @patient_record = Patient.find(params[:id])
+      if @patient_record.update(patient_params)
+        flash[:success] = "Next-of-kin details updated."
+        redirect_to user_path
+      else
+      render 'edit3'
       end
     end
 
@@ -68,7 +82,7 @@ class PatientsController < ApplicationController
     private
     # by adding the below, if anyone changes the keys to send through via the chrome dev tool for eg, the data cannot be passed through via below
     def patient_params
-      params.require(:patient_record).permit(:means_testing, :medisave_access)
+      params.require(:patient_record).permit(:means_testing, :medisave_access, :next_of_kin_email, :next_of_kin, :next_of_kin_contact)
     end
 
   end
