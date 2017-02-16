@@ -10,22 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216074622) do
+ActiveRecord::Schema.define(version: 20170216075114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "formula_tables", force: :cascade do |t|
-    t.string   "Income_Min"
-    t.string   "Income_Max"
-    t.string   "Class_C_SG"
-    t.string   "Class_B2_SG"
-    t.string   "Class_C_PR"
-    t.string   "Class_B2_PR"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.integer  "Class_A"
-  end
 
   create_table "insurance_tables", force: :cascade do |t|
     t.string   "insurance_company"
