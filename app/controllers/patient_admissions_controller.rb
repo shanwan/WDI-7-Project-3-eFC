@@ -37,6 +37,11 @@ class PatientAdmissionsController < ApplicationController
 
   def show
     @patient = PatientAdmission.find_by! user_id: current_user.id, confirm: false
+    if @patient == nil
+      redirect_to user_path(current_user.id)
+    else
+      @patient
+    end
     # if @patient
     #   redirect_to patient_admission_path
     # else
