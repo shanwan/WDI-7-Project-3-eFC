@@ -29,8 +29,8 @@
 <%= button_to "Update profile", edit_user_path(current_user.id), class: 'btn btn-lg btn-primary', method: :get %>
 <br>
 
-<%= button_to "Go Back", patient_admission_path(current_user.id), class: 'btn btn-lg btn-primary' %>
+<%= button_to "Your Records", patient_path(current_user.id), class: 'btn btn-lg btn-primary', method: :get %>
 
-  <%=  current_user.inspect %>
+<%=  current_user.inspect %>
 
 </div>
