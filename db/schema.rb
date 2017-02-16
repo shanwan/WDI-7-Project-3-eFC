@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170216075114) do
+ActiveRecord::Schema.define(version: 20170216080105) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,7 +55,6 @@ ActiveRecord::Schema.define(version: 20170216075114) do
     t.integer  "age"
     t.string   "personal_id"
     t.integer  "income"
-    t.boolean  "insurance"
     t.integer  "medisave"
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
