@@ -24,7 +24,7 @@
     <label> Cash payable </label><br>
     $ <% if @patient_record.medisave - @aftersubsidy > 0 %>
     <%= f.text_field :pay_cash, value: 0 %>
-    <% else %>
+    <% elsif %>
     <% f.text_field :pay_cash, value: (@aftersubsidy - @patient_record.medisave).abs %>
     <% end %> <br>
     <%= f.hidden_field :ward_selected, value: 'B1' %>
