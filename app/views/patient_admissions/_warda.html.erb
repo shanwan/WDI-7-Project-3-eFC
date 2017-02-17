@@ -15,7 +15,13 @@
     <label> After Subsidy </label><br>
     $ <%= @aftersubsidy = @wardA.cost_per_day * @patient.length_of_stay %><br>
     <label> Medisave Claimable </label><br>
-    $ <%= f.text_field :claim_medisave, value: @patient_record.medisave%><br>
+    <% if @patient_record.medisave > @aftersubsidy %>
+    $ <%=f.text_field :claim_medisave, value:  @aftersubsidy %>
+    <% elsif @patient_record.medisave < @aftersubsidy %>
+    <%=f.text_field :claim_medisave, value:  @patient_record.medisave %>
+    <% elsif @patient_record.medisave == 0 %>
+    <%=f.text_field :claim_medisave, value: 0 %>
+    <% end %> <br>
     <label> Cash payable </label><br>
     $ <% if @patient_record.medisave - @aftersubsidy > 0 %>
     <%= f.text_field :pay_cash, value: 0 %>
