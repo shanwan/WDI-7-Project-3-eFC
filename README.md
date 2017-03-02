@@ -35,4 +35,4 @@ Users are able to:-
 # Live version
 https://efinancialcounsellor.herokuapp.com/
 
-![gif](https://efinancialcounsellor.herokuapp.com/)
+![gif](http://i.giphy.com/3oKIPkmkrLm9wbcLny.gif)
