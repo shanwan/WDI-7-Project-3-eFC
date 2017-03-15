@@ -28,3 +28,6 @@ Ruby on rails, PostgreSQL
 https://efinancialcounsellor.herokuapp.com/
 
 ![gif](http://i.giphy.com/3oKIPkmkrLm9wbcLny.gif)
+
+# Workflow - ERD Diagram
+!(https://github.com/shanwan/WDI-7-Project-3-eFC/blob/master/ERD_eFC.png)
