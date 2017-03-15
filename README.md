@@ -1,16 +1,22 @@
-# README
+# eFinancialCounsellor
+This is a group project among @AhGuGu and @Stephanietan.
+Our app aims to facilitate the ward admission process in restructured hospitals in Singapore
+Users are able to:-
+* log in for verification or sign up for new account
+* update user profile and Next-of-kin details
+* see pending and past admissions(if any)
+* manage insurance policies
+* make selections during the ward selection process that will be stored in database
+* view level of subsidy available from income tier
+* view summary of projected bill
+* send notification
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Based on the above user stories, the team created this app to demonstrate the possibility of automating simple tasks to enhance processes.
 
-Things you may want to cover:
+# Built with
+Ruby on rails, PostgreSQL
 
-* Ruby version
-- 2.2.2
-
-* System dependencies
-
-* Configuration
+# Configuration
 
 * Database creation
 -rails db:create
@@ -18,16 +24,7 @@ Things you may want to cover:
 * Database initialization
 -rails db:migrate
 
-* Deployment instructions
+# Live version
+https://efinancialcounsellor.herokuapp.com/
 
-# eFinancialCounsellor
-Our app aims to facilitate the ward admission process in restructured hospitals in Singapore.
-Users are able to:-
-* log in for verification or sign up for new account
-* update user profile and Next-of-kin details
-* see pending and past admissions(if any)
-* CRUD insurance policies
-* Make selections during the ward selection process that will be stored in Database
-* view level of subsidy available from income tier
-* View summary of projected Bill
-* Send notification to Next-of-kin
+![gif](http://i.giphy.com/3oKIPkmkrLm9wbcLny.gif)
